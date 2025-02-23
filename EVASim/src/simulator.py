@@ -84,6 +84,11 @@ if __name__ == "__main__":
     mem_type = None
     cache_way = 0
     cache_line_size = 0
+    
+    mem_type == "None"
+    mem_policy = "None"
+    rrpv_bits = 0
+    rrip_insert = 0
     with open(mem_config_path, 'r') as mem_cfg:
         for cfg_line in mem_cfg:
             key, value = cfg_line.split(':')
@@ -101,7 +106,13 @@ if __name__ == "__main__":
                 elif key.strip() == 'cache_line_size':
                     # cache_line_size = int(value.strip())
                     cache_line_size = mem_gran
-        cache_config = [cache_way, cache_line_size]    
+                
+                if mem_policy == 'cache_SRRIP':
+                    if key.strip() == 'RRPV_bits':
+                        rrpv_bits = int(value.strip())
+                    elif key.strip() == 'RRPV_insertion':
+                        rrip_insert = int(value.strip())
+        cache_config = [cache_way, cache_line_size, rrpv_bits, rrip_insert]
     
     # these are for convenience...
     emb_config = np.fromstring(embsize, dtype=int, sep="-")

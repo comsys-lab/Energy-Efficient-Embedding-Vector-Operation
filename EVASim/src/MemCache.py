@@ -27,7 +27,9 @@ class MemCache:
         self.cache_line_size = 0
         self.cache_set = 0
         self.cache_tag_bits = 0
-        self.n_format_byte = 0
+        self.n_format_byte = 0        
+        self.rrpv_bits = 0
+        self.rrpv_insert = 0
         
         self.access_results = []
                
@@ -49,6 +51,8 @@ class MemCache:
         self.cache_offset_bits = int(np.log2(self.cache_line_size-1)+1) # byte offset
         self.cache_tag_bits = 48 - self.cache_index_bits - self.cache_offset_bits # 48 bits - index bits - byte offset
         self.n_format_byte = n_format_byte
+        self.rrpv_bits = cache_config[2]
+        self.rrpv_insert = cache_config[3]
         
     def set_policy(self, policy):
         if (self.mem_type == "cache" and not policy.startswith("cache_")):
@@ -104,6 +108,9 @@ class MemCache:
             self.on_mem = [LRUlist(self.cache_way) for i in range(self.cache_set)]
         elif self.mem_policy == "cache_OPT":
             self.on_mem = [np.array([], dtype=np.int64) for i in range(self.cache_set)]
+        elif self.mem_policy == "cache_SRRIP":
+            # Initialize as 2D arrays with [tag, RRPV] pairs
+            self.on_mem = [np.zeros((0, 2), dtype=np.int64) for i in range(self.cache_set)]
             
         if self.mem_policy == "cache_profile":
             # flatten the dataset -> count and sort the access frequency of each memory address
@@ -128,6 +135,8 @@ class MemCache:
             self.do_simulation_profile()
         elif self.mem_policy == "cache_OPT":
             self.do_simulation_OPT()
+        elif self.mem_policy == "cache_SRRIP":
+            self.do_simulation_SRRIP()
         else:
             for nb in range(len(self.emb_dataset)): # recall that self.emb_dataset[numbatch][table][batchsz*lookuppersample]
                 num_hit = 0
@@ -153,6 +162,54 @@ class MemCache:
             
         print("Simulation Done")
         self.print_stats()
+    
+    def do_simulation_SRRIP(self):
+        for nb in range(len(self.emb_dataset)):
+            num_hit = 0
+            num_miss = 0
+            
+            print("Processing batch {}...".format(nb))
+            with tqdm(total=len(self.emb_dataset[nb])*len(self.emb_dataset[nb][0]), desc="Processing") as pbar:
+                for nt in range(len(self.emb_dataset[nb])):
+                    for vec in range(len(self.emb_dataset[nb][nt])):
+                        this_tag = self.get_tag_bits(self.emb_dataset[nb][nt][vec])
+                        this_index = self.get_index_bits(self.emb_dataset[nb][nt][vec])
+                        
+                        # Check if tag exists in cache
+                        tag_match = np.where(self.on_mem[this_index][:,0] == this_tag)[0]
+                        
+                        if len(tag_match) > 0: # Cache hit
+                            num_hit += 1
+                            # Update RRPV to 0 on hit
+                            self.on_mem[this_index][tag_match[0], 1] = 0
+                        else: # Cache miss
+                            num_miss += 1
+                            if len(self.on_mem[this_index]) < self.cache_way:
+                                # Add new entry with RRPV_insert
+                                new_entry = np.array([[this_tag, self.rrpv_insert]])
+                                self.on_mem[this_index] = np.vstack([self.on_mem[this_index], new_entry])
+                            else:
+                                max_rrpv = 2**self.rrpv_bits - 1
+                                replaced = False
+                                
+                                while not replaced:
+                                    # Find entries with max RRPV
+                                    victim_candidates = np.where(self.on_mem[this_index][:,1] == max_rrpv)[0]
+                                    
+                                    if len(victim_candidates) > 0:
+                                        # Replace first victim found
+                                        self.on_mem[this_index][victim_candidates[0]] = [this_tag, self.rrpv_insert]
+                                        replaced = True
+                                    else:
+                                        # Increment all RRPV values
+                                        self.on_mem[this_index][:,1] = np.minimum(
+                                            self.on_mem[this_index][:,1] + 1, 
+                                            max_rrpv
+                                        )
+                        
+                        pbar.update(1)
+            
+            self.access_results.append([num_hit, num_miss])
     
     def do_simulation_OPT(self):
         for nb in range(len(self.emb_dataset)): # recall that self.emb_dataset[numbatch][table][batchsz*lookuppersample]
