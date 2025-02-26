@@ -50,9 +50,10 @@ class MemCache:
         self.cache_index_bits = int(np.log2(self.cache_set-1)+1)
         self.cache_offset_bits = int(np.log2(self.cache_line_size-1)+1) # byte offset
         self.cache_tag_bits = 48 - self.cache_index_bits - self.cache_offset_bits # 48 bits - index bits - byte offset
-        self.n_format_byte = n_format_byte
         self.rrpv_bits = cache_config[2]
         self.rrpv_insert = cache_config[3]
+        
+        self.n_format_byte = n_format_byte
         
     def set_policy(self, policy):
         if (self.mem_type == "cache" and not policy.startswith("cache_")):

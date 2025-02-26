@@ -97,7 +97,7 @@ class EnergyEstimator:
                 this_action_type = op_attr.op_type
                 this_action_count = np.ceil(self.access_per_batch / op_attr.access_per_op) * op_attr.num_op
                 
-                print(" [DEBUG] action type and count for op {}: {} {}".format(i, this_action_type, this_action_count))
+                # print(" [DEBUG] action type and count for op {}: {} {}".format(i, this_action_type, this_action_count))
                     
                 if this_action_type in ['vadd', 'vmul']:
                     this_action_count = this_action_count * self.mem_gran
@@ -111,7 +111,7 @@ class EnergyEstimator:
                 if self.energy_n_format == 'fp32':
                     this_action_count = np.ceil(this_action_count / 4).astype(int)
                     
-                print(" [DEBUG] action type and count for op {}: {} {}".format(i, this_action_type, this_action_count))
+                # print(" [DEBUG] action type and count for op {}: {} {}".format(i, this_action_type, this_action_count))
                     
                 energy_object = getattr(self.ET, self.energy_n_format)
                 this_action_energy = this_action_count * getattr(energy_object, this_action_type)

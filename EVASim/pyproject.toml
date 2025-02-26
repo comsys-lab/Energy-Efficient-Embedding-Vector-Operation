@@ -1,0 +1,11 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "pybind11>=2.6.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "EVASim"
+version = "0.1"
+requires-python = ">=3.6"
+dependencies = [
+    "pybind11>=2.6.0",
+]

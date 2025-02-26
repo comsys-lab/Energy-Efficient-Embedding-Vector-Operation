@@ -82,13 +82,12 @@ if __name__ == "__main__":
                                   f'{mem_config_file}.config')
     
     mem_type = None
+    mem_policy = None
     cache_way = 0
-    cache_line_size = 0
-    
-    mem_type == "None"
-    mem_policy = "None"
+    cache_line_size = 0    
     rrpv_bits = 0
     rrip_insert = 0
+    
     with open(mem_config_path, 'r') as mem_cfg:
         for cfg_line in mem_cfg:
             key, value = cfg_line.split(':')
@@ -107,11 +106,11 @@ if __name__ == "__main__":
                     # cache_line_size = int(value.strip())
                     cache_line_size = mem_gran
                 
-                if mem_policy == 'cache_SRRIP':
-                    if key.strip() == 'RRPV_bits':
-                        rrpv_bits = int(value.strip())
-                    elif key.strip() == 'RRPV_insertion':
-                        rrip_insert = int(value.strip())
+            if mem_policy == 'cache_SRRIP' or mem_policy == 'profile_dynamic_SRRIP':
+                if key.strip() == 'RRPV_bits':
+                    rrpv_bits = int(value.strip())
+                elif key.strip() == 'RRPV_insertion':
+                    rrip_insert = int(value.strip())
         cache_config = [cache_way, cache_line_size, rrpv_bits, rrip_insert]
     
     # these are for convenience...
@@ -200,9 +199,11 @@ if __name__ == "__main__":
         # generate the profiled dataset path by replacing the folder name with 'profiled_datasets'
         last_slash = fname.rfind('/')
         second_last_slash = fname[:last_slash].rfind('/')
-        profiled_path = fname[:second_last_slash+1] + 'profiled_datasets' + fname[last_slash:]
+        file_name = fname[last_slash:]
+        profiled_path = fname[:second_last_slash+1] + 'profiled_datasets' + file_name
+        print("[DEBUG] profiled_path: {}".format(profiled_path))
         # print("[DEBUG] argument of mem_struct: {}, {}, {}, {}, {}, {}, {}, {}".format(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path))
-        mem_struct = MemProfile(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)
+        mem_struct = MemProfile(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)
         if mem_policy == "profile_dynamic_count":
             mem_struct.set_index_trace(reqgen.lS_i)
         

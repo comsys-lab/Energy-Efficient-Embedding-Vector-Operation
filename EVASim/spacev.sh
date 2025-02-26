@@ -25,7 +25,7 @@ EMB_POOL=2500000
 EMBS="$EMB_DIM,$EMB_ROW,$EMB_TBL,$EMB_POOL"
 NUM_FORMAT=32
 
-NUM_BATCH=5
+NUM_BATCH=2
 BS=1
 ##############################
 
