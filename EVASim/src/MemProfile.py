@@ -111,14 +111,12 @@ class MemProfile:
         elif self.mem_policy == "profile_dynamic_SRRIP":
             self.logger_size = self.spad_size # access-level logging -> after all, the logger should be able to contain all the entries in the spad (vector-level logging is meaningless)
             self.logger = [np.zeros((0, 2), dtype=np.int64) for i in range(self.cache_set)]
-            self.on_mem_set = set()  # Add this line to create a set for fast lookups
+            # self.logger = SRRIPCache(self.cache_way, self.rrpv_bits, self.rrpv_insert)
         elif self.mem_policy == "profile_dynamic_count":
             # create a counter array, which has the same dimension as the emb_dataset
             self.counter_arr = np.zeros((len(self.index_trace), len(self.index_trace[0]), self.vectors_per_table), dtype=np.int64)
             self.counter_set = 0
         self.on_mem = self.set_spad()
-        if self.mem_policy == "profile_dynamic_SRRIP":
-            self.on_mem_set = set(self.on_mem)  # Add this line to initialize the set
     
     def set_spad(self):
         on_mem_set = []
@@ -148,6 +146,7 @@ class MemProfile:
                 
         elif self.mem_policy == "profile_dynamic_cache" or self.mem_policy == "profile_dynamic_SRRIP":
             if (self.mem_policy == "profile_dynamic_cache" and self.logger.is_empty()) or (self.mem_policy == "profile_dynamic_SRRIP" and all(len(i) == 0 for i in self.logger)): 
+            # if self.logger.is_empty(): 
                 print("[DEBUG] logger is empty. Set the spad with the naive method.")
                 counter = 0
                 break_flag = False
@@ -179,6 +178,7 @@ class MemProfile:
                 if self.mem_policy == "profile_dynamic_cache":
                     on_mem_set = self.logger.return_as_array()[:self.spad_size]
                 elif self.mem_policy == "profile_dynamic_SRRIP":
+                    # PYTHON VERSION
                     on_mem_set = np.zeros(self.spad_size, dtype=np.int64)
                     for i in range(self.cache_set):
                         # self.logger[i][:self.cache_way, 0]가 self.cache_way보다 작을 수 있음. 이 경우 0으로 채워줘야 함.
@@ -188,7 +188,24 @@ class MemProfile:
                             on_mem_set[i*self.cache_way:(i+1)*self.cache_way] = np.pad(self.logger[i][:this_logger_len, 0], (0, self.cache_way-this_logger_len), 'constant')
                         else:
                             on_mem_set[i*self.cache_way:(i+1)*self.cache_way] = self.logger[i][:self.cache_way, 0]
-                # on_mem_set = self.logger.return_as_array()[:self.spad_size]
+                            
+                    # CPP MODULE VERSION
+                    # on_mem_set = np.zeros(self.spad_size, dtype=np.int64)
+                    # num_sets = self.logger.get_num_sets()
+                    
+                    # for i in range(num_sets):
+                    #     # Get entries for this set with their RRPV values
+                    #     set_entries = self.logger.get_set_entries(i)
+                    #     this_logger_len = self.logger.get_num_entries(i)
+                        
+                    #     if this_logger_len < self.cache_way:
+                    #         # Use numpy pad for consistent behavior with Python version
+                    #         entries = set_entries[:this_logger_len, 0]
+                    #         padded_entries = np.pad(entries, (0, self.cache_way-this_logger_len), 'constant')
+                    #         on_mem_set[i*self.cache_way:(i+1)*self.cache_way] = padded_entries
+                    #     else:
+                    #         on_mem_set[i*self.cache_way:(i+1)*self.cache_way] = set_entries[:self.cache_way, 0]
+                
                 print("[DEBUG] on_mem_set type: {}, shape: {}, dtype: {}".format(type(on_mem_set), on_mem_set.shape, on_mem_set.dtype))
                 print("[DEBUG] on_mem_set[0]: {}, on_mem_set[-1]: {}".format(on_mem_set[0], on_mem_set[-1]))
         
@@ -245,10 +262,10 @@ class MemProfile:
                 addresses = tbl_bits + vec_idx + dim_offsets
                 print("[DEBUG] shape of addresses during dcount set_spad: {}".format(addresses.shape))
                 on_mem_set = addresses.ravel()[:self.spad_size]
-                print("[DEBUG] shape of on_mem_set during dcount set_spad: {}".format(on_mem_set.shape))
-                
-                return on_mem_set
+                print("[DEBUG] shape of on_mem_set during dcount set_spad: {}".format(on_mem_set.shape))                
         
+        # self.on_mem_set = set(self.on_mem) # create a set for fast lookups
+        self.on_mem_set = set(on_mem_set) # create a set for fast lookups
         return on_mem_set
     
     def do_simulation(self):
@@ -308,7 +325,7 @@ class MemProfile:
             with tqdm(total=len(vectors_in_batch), desc=f"Batch {nb}") as pbar:
                 for vec in vectors_in_batch:
                     # Check cache hit or miss
-                    is_hit = vec in self.on_mem
+                    is_hit = vec in self.on_mem_set
                     if is_hit:
                         num_hit += 1
                     else:
@@ -340,6 +357,7 @@ class MemProfile:
             self.logger_results.append([logger_hit, logger_miss])
             # print("[DEBUG] result appended for batch {}".format(nb))
     
+    # PYTHON VERSION
     def do_simulation_SRRIP(self):
         dynamic_counter = 0
         dynamic_counter_threshold_init = 10 #* self.spad_size
@@ -423,14 +441,15 @@ class MemProfile:
             self.spad_load_results.append(num_spad_load)
             self.logger_results.append([logger_hit, logger_miss])
             
-            # Store all entries in the logger on logger_first_batch_entries.txt, for debugging
-            if jj == 0:
-                with open("logger_first_batch_entries.txt", "w") as f:
-                    for i in range(self.cache_set):
-                        for j in range(len(self.logger[i])):
-                            f.write(f"{self.logger[i][j][0]}\n")
-                f.close()
-            
+    #         # Store all entries in the logger on logger_first_batch_entries.txt, for debugging
+    #         if jj == 0:
+    #             with open("logger_first_batch_entries.txt", "w") as f:
+    #                 for i in range(self.cache_set):
+    #                     for j in range(len(self.logger[i])):
+    #                         f.write(f"{self.logger[i][j][0]}\n")
+    #             f.close()
+    
+    # CPP MODULE VERSION
     # def do_simulation_SRRIP(self):
     #     dynamic_counter = 0
     #     dynamic_counter_threshold_init = 10
@@ -440,7 +459,7 @@ class MemProfile:
     #     print("[DEBUG] dynamic_counter_threshold: {}".format(dynamic_counter_threshold))
         
     #     # Initialize the C++ SRRIP cache
-    #     srrip_logger = SRRIPCache(self.cache_way, self.rrpv_bits, self.rrpv_insert)
+    #     # srrip_logger = SRRIPCache(self.cache_way, self.rrpv_bits, self.rrpv_insert)
         
     #     self.logger_results = []
         
@@ -458,14 +477,14 @@ class MemProfile:
     #         with tqdm(total=len(vectors_in_batch), desc=f"Batch {nb}") as pbar:
     #             for vec in vectors_in_batch:
     #                 # Check cache hit or miss
-    #                 is_hit = vec in self.on_mem
+    #                 is_hit = vec in self.on_mem_set
     #                 if is_hit:
     #                     num_hit += 1
     #                 else:
     #                     num_miss += 1
                     
     #                 # Update the logger using C++ implementation
-    #                 if srrip_logger.access(vec):
+    #                 if self.logger.access(vec):
     #                     logger_hit += 1
     #                 else:
     #                     logger_miss += 1
@@ -514,7 +533,7 @@ class MemProfile:
                         # simluation is addr based
                         for dim in range(self.access_per_vector):
                             
-                            if self.emb_dataset[nb][nt][vec + dim] in self.on_mem:
+                            if self.emb_dataset[nb][nt][vec + dim] in self.on_mem_set:
                                 num_hit += 1
                             else:
                                 num_miss += 1
