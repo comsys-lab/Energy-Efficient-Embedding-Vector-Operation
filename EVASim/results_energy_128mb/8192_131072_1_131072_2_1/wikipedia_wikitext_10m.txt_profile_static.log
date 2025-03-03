@@ -1,0 +1,30 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/wikipedia/wikitext_10m.txt                                     ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 1                                                                                      ║
+║ Batch Size (samples per batch): 1                                                                  ║
+║ Vectors per table: 131072                                                                          ║
+║ Lookups per sample: 131072                                                                         ║
+║ Embedding Dimension 8192                                                                           ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   1.335754sec)
+[DEBUG] lS_i shape: (2, 1, 131072)
+[DEBUG] addr_trace shape: (2, 1, 8388608)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:  26.510094sec)
+[DEBUG] profiled_path: /workspace/EVASim/datasets/profiled_datasets/wikitext_10m.txt
+[DEBUG] cache_way: 16 cache_line_size: 128 cache_set: 65536
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_static                                                                      ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+Error: Could not find profile file at /workspace/EVASim/datasets/profiled_datasets/wikitext_10m.txt

@@ -1,0 +1,103 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/dlrm/reuse_medium_table_1M.txt                                 ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 512                                                                                    ║
+║ Batch Size (samples per batch): 128                                                                ║
+║ Vectors per table: 1000000                                                                         ║
+║ Lookups per sample: 170                                                                            ║
+║ Embedding Dimension 256                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   1.492438sec)
+[DEBUG] lS_i shape: (2, 512, 21760)
+[DEBUG] addr_trace shape: (2, 512, 43520)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:  72.919078sec)
+[DEBUG] cache_way: 16 cache_line_size: 128 cache_set: 65536
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_dynamic_SRRIP                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] logger is empty. Set the spad with the naive method.
+on mem data structure size: 8192.11 KB
+(Time elapsed(s) in create memory structure:   1.522218sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] dynamic_counter_threshold: 22282240
+Simulation for batch 0...
+[DEBUG] logger is not empty. Set the spad with the logger entries.
+[DEBUG] on_mem_set type: <class 'numpy.ndarray'>, shape: (1048576,), dtype: int64
+[DEBUG] on_mem_set[0]: 125678125056, on_mem_set[-1]: 127003524992
+Simulation for batch 0...
+[DEBUG] logger is not empty. Set the spad with the logger entries.
+[DEBUG] on_mem_set type: <class 'numpy.ndarray'>, shape: (1048576,), dtype: int64
+[DEBUG] on_mem_set[0]: 112591896576, on_mem_set[-1]: 105528688512
+Simulation Done
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total hit ratio: 0.0851                                                                            ║
+║ Total accesses: 44564480                                                                           ║
+║ Total hits: 3792502                                                                                ║
+║ Total misses: 40771978                                                                             ║
+║                                                                                                    ║
+║ Per batch results:                                                                                 ║
+║ [Batch 0] hit ratio: 0.0011 accesses: 22282240 hits: 23718 misses: 22258522                        ║
+║ [Batch 0] spad load: 1048576                                                                       ║
+║ [Batch 0] logger hit ratio: 0.6149 accesses: 22282240 hits: 13701904 misses: 8580336               ║
+║ [Batch 1] hit ratio: 0.1691 accesses: 22282240 hits: 3768784 misses: 18513456                      ║
+║ [Batch 1] spad load: 1048576                                                                       ║
+║ [Batch 1] logger hit ratio: 0.6158 accesses: 22282240 hits: 13722088 misses: 8560152               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in do simulation: 10803.758245sec)
+[DEBUG] workload_type: dlrm
+
+
+
+ START ENERGY ESTIMATION 
+
+Setting parameters for energy estimation...
+Setting workload configuration...
+Setting energy table configuration...
+ [DEBUG] action type and count for op 0: add 2835349504.0
+ [DEBUG] action type and count for op 0: add 2835349504.0
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total Energy: 230284472314.880 pJ                                                                  ║
+║ Off-chip Memory Energy: 228323076800.000 pJ (99.15%)                                               ║
+║ On-chip Memory Energy: 1791274544.640 pJ (0.78%)                                                   ║
+║ Operations Energy:                                                                                 ║
+║   - Operation 0: 170120970.240 pJ (0.07%)                                                          ║
+║                                                                                                    ║
+║ Per-Batch Energy:                                                                                  ║
+║   - Batch 0:                                                                                       ║
+║     Total Energy: 124743986170.880 pJ                                                              ║
+║     Off-chip Memory Energy: 124647723200.000 pJ                                                    ║
+║     On-chip Memory Energy: 11202485.760 pJ                                                         ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 85060485.120 pJ                                                               ║
+║   - Batch 1:                                                                                       ║
+║     Total Energy: 105540486144.000 pJ                                                              ║
+║     Off-chip Memory Energy: 103675353600.000 pJ                                                    ║
+║     On-chip Memory Energy: 1780072058.880 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 85060485.120 pJ                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in energy estimation:   0.002449sec)

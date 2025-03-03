@@ -1,0 +1,58 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/dlrm/reuse_high_table_1M.txt                                   ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 512                                                                                    ║
+║ Batch Size (samples per batch): 32                                                                 ║
+║ Vectors per table: 1000000                                                                         ║
+║ Lookups per sample: 170                                                                            ║
+║ Embedding Dimension 256                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   0.892561sec)
+[DEBUG] lS_i shape: (2, 512, 5440)
+[DEBUG] addr_trace shape: (2, 512, 10880)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:  17.797179sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_dynamic_count                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] counter array is empty. Set the spad with the naive method.
+on mem data structure size: 8192.11 KB
+(Time elapsed(s) in create memory structure:   1.422790sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] dynamic_counter_threshold: 5570560
+Simulation for batch 0...
+[DEBUG] shape of addresses during dcount set_spad: (524288, 2)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048576,)
+Simulation for batch 0...
+[DEBUG] shape of addresses during dcount set_spad: (524288, 2)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048576,)
+Simulation Done
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total hit ratio: 0.4218                                                                            ║
+║ Total accesses: 11141120                                                                           ║
+║ Total hits: 4699510                                                                                ║
+║ Total misses: 6441610                                                                              ║
+║                                                                                                    ║
+║ Per batch results:                                                                                 ║
+║ [Batch 0] hit ratio: 0.0010 accesses: 5570560 hits: 5728 misses: 5564832                           ║
+║ [Batch 0] spad load: 1048576                                                                       ║
+║ [Batch 1] hit ratio: 0.8426 accesses: 5570560 hits: 4693782 misses: 876778                         ║
+║ [Batch 1] spad load: 1048576                                                                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in do simulation: 2323.389170sec)

@@ -1,0 +1,36 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/dlrm/reuse_high_table_1M.txt                                   ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 5                                                                                      ║
+║ Batch Size (samples per batch): 128                                                                ║
+║ Vectors per table: 1000000                                                                         ║
+║ Lookups per sample: 170                                                                            ║
+║ Embedding Dimension 256                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   0.565738sec)
+[DEBUG] lS_i shape: (2, 5, 21760)
+[DEBUG] addr_trace shape: (2, 5, 43520)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:   0.695684sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_dynamic_count                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] counter array is empty. Set the spad with the naive method.
+on mem data structure size: 8192.11 KB
+(Time elapsed(s) in create memory structure:   1.434575sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] dynamic_counter_threshold: 217600
+Simulation for batch 0...

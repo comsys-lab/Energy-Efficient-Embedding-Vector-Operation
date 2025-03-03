@@ -1,0 +1,125 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/vectordb/deep250m_10m.txt                                      ║
+║ Numeric format: 32 bits                                                                            ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 1                                                                                      ║
+║ Batch Size (samples per batch): 1                                                                  ║
+║ Vectors per table: 250000000                                                                       ║
+║ Lookups per sample: 2500000                                                                        ║
+║ Embedding Dimension 96                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   1.744814sec)
+[DEBUG] lS_i shape: (2, 1, 2500000)
+[DEBUG] addr_trace shape: (2, 1, 7500000)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:  23.658797sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_dynamic_count                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] counter array is empty. Set the spad with the naive method.
+on mem data structure size: 8192.11 KB
+(Time elapsed(s) in create memory structure:   1.413141sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] dynamic_counter_threshold: 7500000
+Simulation for batch 1...
+[DEBUG] shape of addresses during dcount set_spad: (349525, 3)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048575,)
+Simulation for batch 1...
+[DEBUG] shape of addresses during dcount set_spad: (349525, 3)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048575,)
+Simulation Done
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total hit ratio: 0.1404                                                                            ║
+║ Total accesses: 15000000                                                                           ║
+║ Total hits: 2106150                                                                                ║
+║ Total misses: 12893850                                                                             ║
+║                                                                                                    ║
+║ Per batch results:                                                                                 ║
+║ [Batch 0] hit ratio: 0.0012 accesses: 7500000 hits: 9000 misses: 7491000                           ║
+║ [Batch 0] spad load: 1048576                                                                       ║
+║ [Batch 1] hit ratio: 0.2796 accesses: 7500000 hits: 2097150 misses: 5402850                        ║
+║ [Batch 1] spad load: 1048576                                                                       ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in do simulation: 2971.114592sec)
+[DEBUG] workload_type: vectordb
+
+
+
+ START ENERGY ESTIMATION 
+
+Setting parameters for energy estimation...
+Setting workload configuration...
+Setting energy table configuration...
+ [DEBUG] action type and count for op 0: vadd 7500000.0
+ [DEBUG] action type and count for op 0: add 960000000.0
+ [DEBUG] action type and count for op 0: add 240000000
+ [DEBUG] action type and count for op 1: vmul 7500000.0
+ [DEBUG] action type and count for op 1: mul 960000000.0
+ [DEBUG] action type and count for op 1: mul 240000000
+ [DEBUG] action type and count for op 2: add 952500000.0
+ [DEBUG] action type and count for op 2: add 238125000
+ [DEBUG] action type and count for op 3: cmp 7500000.0
+ [DEBUG] action type and count for op 3: cmp 1875000
+ [DEBUG] action type and count for op 0: vadd 7500000.0
+ [DEBUG] action type and count for op 0: add 960000000.0
+ [DEBUG] action type and count for op 0: add 240000000
+ [DEBUG] action type and count for op 1: vmul 7500000.0
+ [DEBUG] action type and count for op 1: mul 960000000.0
+ [DEBUG] action type and count for op 1: mul 240000000
+ [DEBUG] action type and count for op 2: add 952500000.0
+ [DEBUG] action type and count for op 2: add 238125000
+ [DEBUG] action type and count for op 3: cmp 7500000.0
+ [DEBUG] action type and count for op 3: cmp 1875000
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total Energy: 75840336768.000 pJ                                                                   ║
+║ Off-chip Memory Energy: 72205560000.000 pJ (95.21%)                                                ║
+║ On-chip Memory Energy: 994776768.000 pJ (1.31%)                                                    ║
+║ Operations Energy:                                                                                 ║
+║   - Operation 0: 432000000.000 pJ (0.57%)                                                          ║
+║   - Operation 1: 1776000000.000 pJ (2.34%)                                                         ║
+║   - Operation 2: 428625000.000 pJ (0.57%)                                                          ║
+║   - Operation 3: 3375000.000 pJ (0.00%)                                                            ║
+║                                                                                                    ║
+║ Per-Batch Energy:                                                                                  ║
+║   - Batch 0:                                                                                       ║
+║     Total Energy: 43273850880.000 pJ                                                               ║
+║     Off-chip Memory Energy: 41949600000.000 pJ                                                     ║
+║     On-chip Memory Energy: 4250880.000 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 216000000.000 pJ                                                              ║
+║       - Operation 1: 888000000.000 pJ                                                              ║
+║       - Operation 2: 214312500.000 pJ                                                              ║
+║       - Operation 3: 1687500.000 pJ                                                                ║
+║   - Batch 1:                                                                                       ║
+║     Total Energy: 32566485888.000 pJ                                                               ║
+║     Off-chip Memory Energy: 30255960000.000 pJ                                                     ║
+║     On-chip Memory Energy: 990525888.000 pJ                                                        ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 216000000.000 pJ                                                              ║
+║       - Operation 1: 888000000.000 pJ                                                              ║
+║       - Operation 2: 214312500.000 pJ                                                              ║
+║       - Operation 3: 1687500.000 pJ                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in energy estimation:   0.002514sec)

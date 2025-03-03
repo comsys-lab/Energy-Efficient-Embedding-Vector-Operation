@@ -11,22 +11,24 @@
 ║ Lookups per sample: 131072                                                                         ║
 ║ Embedding Dimension 8192                                                                           ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
-(Time elapsed(s) in model and data gen:   1.383048sec)
+(Time elapsed(s) in model and data gen:   1.346810sec)
+[DEBUG] lS_i shape: (2, 1, 131072)
 [DEBUG] addr_trace shape: (2, 1, 8388608)
 Converting vector indices into virtual memory addresses for batch 0...
 Converting vector indices into virtual memory addresses for batch 1...
-(Time elapsed(s) in address generation:  24.291060sec)
+(Time elapsed(s) in address generation:  26.866170sec)
 
 ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
 ╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory size: 268435456 B (256 MB)                                                                  ║
 ║ Memory type: spad                                                                                  ║
 ║ Memory policy: spad_naive                                                                          ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
-[DEBUG] on_mem has 1048576 elements.
-on mem data structure size: 8192.11 KB
-(Time elapsed(s) in create memory structure:   1.326757sec)
+[DEBUG] t_i: 0
+[DEBUG] on_mem has 2097152 elements.
+on mem data structure size: 16384.11 KB
+(Time elapsed(s) in create memory structure:   2.931676sec)
 
 ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
@@ -38,18 +40,18 @@ Simulation Done
 ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
 ╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Total hit ratio: 0.8386                                                                            ║
+║ Total hit ratio: 0.9135                                                                            ║
 ║ Total accesses: 16777216                                                                           ║
-║ Total hits: 14068864                                                                               ║
-║ Total misses: 2708352                                                                              ║
+║ Total hits: 15326720                                                                               ║
+║ Total misses: 1450496                                                                              ║
 ║                                                                                                    ║
 ║ Per batch results:                                                                                 ║
-║ [Batch 0] hit ratio: 0.8364 accesses: 8388608 hits: 7016448 misses: 1372160                        ║
+║ [Batch 0] hit ratio: 0.9142 accesses: 8388608 hits: 7668608 misses: 720000                         ║
 ║ [Batch 0] spad load: 0                                                                             ║
-║ [Batch 1] hit ratio: 0.8407 accesses: 8388608 hits: 7052416 misses: 1336192                        ║
+║ [Batch 1] hit ratio: 0.9129 accesses: 8388608 hits: 7658112 misses: 730496                         ║
 ║ [Batch 1] spad load: 0                                                                             ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
-(Time elapsed(s) in do simulation:   0.684066sec)
+(Time elapsed(s) in do simulation:   0.780384sec)
 [DEBUG] workload_type: wikipedia
 
 
@@ -60,35 +62,6 @@ Setting parameters for energy estimation...
 Setting workload configuration...
 Setting energy table configuration...
 
-============= Configuration Summary =============
-
-[Workload Configuration]
-Workload Type: wikipedia
-Number of Operation Types: 0
-
-[Operation Details]
-
-[Energy Table Configuration]
-Technology Node: 45nm
-
-Memory Access Energy (pJ/byte):
-- Off-chip Memory: 43.750
-- Global Buffer: 3.690
-- Local Buffer: 1.250
-
-Computation Energy (pJ):
-INT8 Operations:
-- Addition: 0.030
-- Multiplication: 0.200
-- Compare: 0.030
-
-FP32 Operations:
-- Addition: 0.900
-- Multiplication: 3.700
-- Compare: 0.900
-=============================================
-
-
 ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
@@ -96,21 +69,21 @@ FP32 Operations:
 ╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
 ║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
 ╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
-║ Total Energy: 21811777044.480 pJ                                                                   ║
-║ Off-chip Memory Energy: 15166771200.000 pJ (69.53%)                                                ║
-║ On-chip Memory Energy: 6645005844.480 pJ (30.47%)                                                  ║
+║ Total Energy: 15361893990.400 pJ                                                                   ║
+║ Off-chip Memory Energy: 8122777600.000 pJ (52.88%)                                                 ║
+║ On-chip Memory Energy: 7239116390.400 pJ (47.12%)                                                  ║
 ║ Operations Energy:                                                                                 ║
 ║                                                                                                    ║
 ║ Per-Batch Energy:                                                                                  ║
 ║   - Batch 0:                                                                                       ║
-║     Total Energy: 10998104719.360 pJ                                                               ║
-║     Off-chip Memory Energy: 7684096000.000 pJ                                                      ║
-║     On-chip Memory Energy: 3314008719.360 pJ                                                       ║
+║     Total Energy: 7654036930.560 pJ                                                                ║
+║     Off-chip Memory Energy: 4032000000.000 pJ                                                      ║
+║     On-chip Memory Energy: 3622036930.560 pJ                                                       ║
 ║     Operations Energy:                                                                             ║
 ║   - Batch 1:                                                                                       ║
-║     Total Energy: 10813672325.120 pJ                                                               ║
-║     Off-chip Memory Energy: 7482675200.000 pJ                                                      ║
-║     On-chip Memory Energy: 3330997125.120 pJ                                                       ║
+║     Total Energy: 7707857059.840 pJ                                                                ║
+║     Off-chip Memory Energy: 4090777600.000 pJ                                                      ║
+║     On-chip Memory Energy: 3617079459.840 pJ                                                       ║
 ║     Operations Energy:                                                                             ║
 ╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
-(Time elapsed(s) in energy estimation:   0.002398sec)
+(Time elapsed(s) in energy estimation:   0.002461sec)

@@ -1,0 +1,99 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/dlrm/reuse_medium_table_1M.txt                                 ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 2                                                                                     ║
+║ Num tables: 512                                                                                    ║
+║ Batch Size (samples per batch): 32                                                                 ║
+║ Vectors per table: 1000000                                                                         ║
+║ Lookups per sample: 170                                                                            ║
+║ Embedding Dimension 256                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:   0.460267sec)
+[DEBUG] lS_i shape: (2, 512, 5440)
+[DEBUG] addr_trace shape: (2, 512, 10880)
+Converting vector indices into virtual memory addresses for batch 0...
+Converting vector indices into virtual memory addresses for batch 1...
+(Time elapsed(s) in address generation:  17.835596sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_static                                                                      ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] on_mem has 400000 elements.
+[DEBUG] on_mem[0]: 62545682688
+[DEBUG] on_mem[-1]: 42816408064
+on mem data structure size: 3125.11 KB
+(Time elapsed(s) in create memory structure:   0.082771sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+Simulation for batch 0...
+Simulation for batch 1...
+Simulation Done
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total hit ratio: 0.0010                                                                            ║
+║ Total accesses: 11141120                                                                           ║
+║ Total hits: 11459                                                                                  ║
+║ Total misses: 11129661                                                                             ║
+║                                                                                                    ║
+║ Per batch results:                                                                                 ║
+║ [Batch 0] hit ratio: 0.0015 accesses: 5570560 hits: 8573 misses: 5561987                           ║
+║ [Batch 0] spad load: 0                                                                             ║
+║ [Batch 1] hit ratio: 0.0005 accesses: 5570560 hits: 2886 misses: 5567674                           ║
+║ [Batch 1] spad load: 0                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in do simulation:   8.490012sec)
+[DEBUG] workload_type: dlrm
+
+
+
+ START ENERGY ESTIMATION 
+
+Setting parameters for energy estimation...
+Setting workload configuration...
+Setting energy table configuration...
+ [DEBUG] action type and count for op 0: vadd 5537792.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: vadd 5537792.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total Energy: 62374044157.440 pJ                                                                   ║
+║ Off-chip Memory Energy: 62326101600.000 pJ (99.92%)                                                ║
+║ On-chip Memory Energy: 5412314.880 pJ (0.01%)                                                      ║
+║ Operations Energy:                                                                                 ║
+║   - Operation 0: 42530242.560 pJ (0.07%)                                                           ║
+║                                                                                                    ║
+║ Per-Batch Energy:                                                                                  ║
+║   - Batch 0:                                                                                       ║
+║     Total Energy: 31172441520.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31147127200.000 pJ                                                     ║
+║     On-chip Memory Energy: 4049199.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 1:                                                                                       ║
+║     Total Energy: 31201602636.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31178974400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1363115.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in energy estimation:   0.002425sec)
