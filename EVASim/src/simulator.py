@@ -3,7 +3,7 @@ from ReqGenerator import ReqGenerator
 from ReqGenerator_temp_criteo import ReqGenerator_temp_criteo # This is for temporal test
 from MemSpad import MemSpad
 from MemCache import MemCache
-from MemProfile import MemProfile
+from MemProfile_index import MemProfile
 from EnergyEstimator import EnergyEstimator
 import argparse
 import sys
@@ -203,9 +203,11 @@ if __name__ == "__main__":
         profiled_path = fname[:second_last_slash+1] + 'profiled_datasets' + file_name
         print("[DEBUG] profiled_path: {}".format(profiled_path))
         # print("[DEBUG] argument of mem_struct: {}, {}, {}, {}, {}, {}, {}, {}".format(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path))
-        mem_struct = MemProfile(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)
-        if mem_policy == "profile_dynamic_count":
-            mem_struct.set_index_trace(reqgen.lS_i)
+        
+        mem_struct = MemProfile(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)        
+        
+        # if mem_policy == "profile_dynamic_count":
+        mem_struct.set_index_trace(reqgen.lS_i)
         
     mem_struct.set_policy(mem_policy)
     mem_struct.print_config()
