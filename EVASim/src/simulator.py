@@ -3,7 +3,7 @@ from ReqGenerator import ReqGenerator
 from ReqGenerator_temp_criteo import ReqGenerator_temp_criteo # This is for temporal test
 from MemSpad import MemSpad
 from MemCache import MemCache
-from MemProfile_index import MemProfile
+from MemProfile import MemProfile
 from EnergyEstimator import EnergyEstimator
 import argparse
 import sys

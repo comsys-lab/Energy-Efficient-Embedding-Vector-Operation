@@ -516,7 +516,7 @@ class MemProfile:
             num_miss = 0
             num_spad_load = 0
             
-            nb=1 #DEBUG
+            nb=jj #DEBUG
             
             print("Simulation for batch {}...".format(nb))
             with tqdm(total=len(self.index_trace[0]) * len(self.index_trace[0][0]), desc=f"Batch {nb}") as pbar:
