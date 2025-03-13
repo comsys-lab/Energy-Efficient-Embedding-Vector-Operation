@@ -16,6 +16,7 @@ EVASim/datasets/vectordb/deep250m_train_10m.txt
 EVASim/datasets/vectordb/spacev250m_train_10m.txt
 EVASim/datasets/vectordb/deep250m_train_1B.txt
 EVASim/datasets/vectordb/spacev250m_train_1B.txt
+EVASim/oracle_trace_all.txt
 
 EVASim/results_1mperiod
 EVASim/results_Batchperiod_bormin
