@@ -12,7 +12,7 @@ from lru_cache import LRUCache
 from srrip_cache import SRRIPCache
 
 class MemProfile:
-    def __init__(self, mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path):
+    def __init__(self, mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path, prof_multiplier=1):
         self.mem_size = 0 ### KB
         self.mem_type = "init"
         self.mem_gran = 0
@@ -31,18 +31,24 @@ class MemProfile:
         ### this is for profile_dynamic_cache
         self.n_format_byte = 0
         
+        ### this is only for configuring the profiling period
+        self.prof_multiplier = 1
+        
         self.access_results = []
         self.spad_load_results = []
                
-        self.set_params(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)
+        self.set_params(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path, prof_multiplier)
         
-    def set_params(self, mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path):
+    def set_params(self, mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path, prof_multiplier):
         self.mem_size = mem_size * 1024 # KB -> Byte
         self.mem_type = mem_type # spad or cache
         self.mem_gran = mem_gran
         
         ### this is for profile_dynamic_cache
         self.n_format_byte = n_format_byte
+        
+        ### this is only for configuring the profiling period
+        self.prof_multiplier = prof_multiplier
                 
         ### below configs are related to the dataset
         self.emb_dim = emb_dim # this is for spad
@@ -113,8 +119,8 @@ class MemProfile:
             self.logger = [np.zeros((0, 2), dtype=np.int64) for i in range(self.cache_set)]
             # self.logger = SRRIPCache(self.cache_way, self.rrpv_bits, self.rrpv_insert)
         elif self.mem_policy == "profile_dynamic_count":
-            # create a counter array, which has the same dimension as the emb_dataset
-            self.counter_arr = np.zeros((len(self.index_trace), len(self.index_trace[0]), self.vectors_per_table), dtype=np.int64)
+            # create a counter array, 
+            self.counter_arr = np.zeros((1, len(self.index_trace[0]), self.vectors_per_table), dtype=np.int64)
             self.counter_set = 0
         self.on_mem = self.set_spad()
     
@@ -262,7 +268,10 @@ class MemProfile:
                 addresses = tbl_bits + vec_idx + dim_offsets
                 print("[DEBUG] shape of addresses during dcount set_spad: {}".format(addresses.shape))
                 on_mem_set = addresses.ravel()[:self.spad_size]
-                print("[DEBUG] shape of on_mem_set during dcount set_spad: {}".format(on_mem_set.shape))                
+                print("[DEBUG] shape of on_mem_set during dcount set_spad: {}".format(on_mem_set.shape))
+                
+                # Initialize the counter array
+                self.counter_arr = np.zeros((1, len(self.index_trace[0]), self.vectors_per_table), dtype=np.int64)               
         
         # self.on_mem_set = set(self.on_mem) # create a set for fast lookups
         self.on_mem_set = set(on_mem_set) # create a set for fast lookups
@@ -360,7 +369,7 @@ class MemProfile:
     # PYTHON VERSION
     def do_simulation_SRRIP(self):
         dynamic_counter = 0
-        dynamic_counter_threshold_init = 10 #* self.spad_size
+        dynamic_counter_threshold_init = 20 #* self.spad_size
         vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0]))
         
         dynamic_counter_threshold = max(np.ceil(len(vectors_in_batch)/1), dynamic_counter_threshold_init) # number of vectors in the batch        
@@ -505,7 +514,7 @@ class MemProfile:
     def do_simulation_dcount(self):
         dynamic_counter = 0
         dynamic_counter_threshold_init = 10 # * self.spad_size
-        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0]))
+        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0])) * self.prof_multiplier
         
         dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) # number of vectors in the batch
         
@@ -524,9 +533,9 @@ class MemProfile:
                     for vec_ind in range(len(self.index_trace[nb][nt])):
                         # update the counter array using the index trace
                         this_vec_ind = self.index_trace[nb][nt][vec_ind]
-                        self.counter_arr[nb][nt][this_vec_ind] += 1
+                        self.counter_arr[0][nt][this_vec_ind] += 1
                         
-                        # print("[DEBUG] vector index {} is accessed {} times".format(this_vec_ind, self.counter_arr[nb][nt][this_vec_ind]))
+                        # print("[DEBUG] vector index {} is accessed {} times".format(this_vec_ind, self.counter_arr[0][nt][this_vec_ind]))
                         
                         vec = vec_ind * self.access_per_vector
                         

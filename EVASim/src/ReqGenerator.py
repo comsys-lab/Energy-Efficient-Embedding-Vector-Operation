@@ -2,6 +2,8 @@ import numpy as np
 import time
 import torch
 from tqdm import tqdm
+import multiprocessing as mp
+from functools import partial
 
 ## We implement this module based on this code: https://github.com/rishucoding/reproduce_MICRO24_GPU_DLRM_inference by RJ
 
@@ -17,6 +19,31 @@ def dash_separated_ints(value):
             )
 
     return value
+
+# Define the worker function outside of the class method to avoid pickle issues
+def _process_batch_worker(args):
+    """Standalone worker function that processes a single batch"""
+    batch_idx, batch_data, table_count, vector_length, access_per_vector, emb_dim, n_format_byte, mem_gran, rows_per_table = args
+    
+    # Create result container for this batch
+    batch_addr_trace = [
+        np.ones(int(vector_length * access_per_vector), dtype=np.int64)
+        for _ in range(table_count)
+    ]
+    
+    # Process this batch
+    for nt in range(table_count):
+        for vec in range(len(batch_data[nt])):
+            for dim in range(access_per_vector):
+                bytes_per_vec = (emb_dim * n_format_byte - 1).bit_length()
+                tbl_bits = nt << int(np.log2(rows_per_table-1)+1 + bytes_per_vec)                            
+                vec_idx = batch_data[nt][vec] << bytes_per_vec
+                dim_bits = mem_gran * dim
+                this_addr = tbl_bits + vec_idx + dim_bits
+                
+                batch_addr_trace[nt][vec * access_per_vector + dim] = this_addr
+                
+    return batch_addr_trace
 
 class ReqGenerator:
     def __init__(self, nbatches, n_format_byte, embsize, emb_dim, bsz, fname, num_indices_per_lookup, mem_gran):
@@ -116,22 +143,36 @@ class ReqGenerator:
         ln_emb = np.fromstring(self.embsize, dtype=int, sep="-")
         ln_emb = np.asarray(ln_emb, dtype=np.int32)
         rows_per_table = ln_emb[0]
-        for nb in range(len(self.lS_i)): # recall that self.lS_i[numbatch][table][batchsz*lookuppersample]
-            print("Converting vector indices into virtual memory addresses for batch {}...".format(nb))
-            with tqdm(total=len(self.lS_i[nb])*len(self.lS_i[nb][0])*self.access_per_vector, desc="Processing") as pbar:
-                for nt in range(len(self.lS_i[nb])):
-                    for vec in range(len(self.lS_i[nb][nt])):
-                        for dim in range(self.access_per_vector):
-                            bytes_per_vec = (self.emb_dim * self.n_format_byte - 1).bit_length()
-                            tbl_bits = nt << int(np.log2(rows_per_table-1)+1 + bytes_per_vec)                            
-                            vec_idx = self.lS_i[nb][nt][vec] << bytes_per_vec
-                            dim_bits = self.mem_gran * dim
-                            this_addr = tbl_bits + vec_idx + dim_bits
-                            
-                            self.addr_trace[nb][nt][vec * self.access_per_vector + dim] = this_addr
-                            # print(this_addr)
-                        
-                            pbar.update(1)
+        
+        # Get number of available cores (leave one for the main process)
+        num_cores = max(1, mp.cpu_count() - 1)
+        print(f"Starting multiprocessing with {num_cores} cores...")
+        
+        # Prepare data for each batch to avoid sharing the entire self
+        batch_args = []
+        for batch_idx in range(len(self.lS_i)):
+            # Create a tuple with all necessary data for processing this batch
+            args = (
+                batch_idx,                  # Current batch index
+                self.lS_i[batch_idx],       # The batch data
+                len(self.lS_i[0]),          # Number of tables
+                len(self.lS_i[0][0]),       # Vector length
+                self.access_per_vector,     # Access per vector
+                self.emb_dim,               # Embedding dimension
+                self.n_format_byte,         # Format bytes
+                self.mem_gran,              # Memory granularity
+                rows_per_table              # Rows per table
+            )
+            batch_args.append(args)
+        
+        # Create a process pool and distribute batches
+        with mp.Pool(processes=num_cores) as pool:
+            # Map the function to batch arguments and display progress
+            with tqdm(total=len(self.lS_i), desc="Processing batches") as pbar:
+                for nb, batch_result in enumerate(pool.imap(_process_batch_worker, batch_args)):
+                    # Store the result in the main addr_trace array
+                    self.addr_trace[nb] = batch_result
+                    pbar.update(1)
 
     def do_batch_access_pattern_analysis(self):
         # Convert first batch (batch 0) addresses into a list to maintain duplicates
