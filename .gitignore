@@ -9,6 +9,8 @@ EVASim/src/test_lru_cache.py
 
 
 ### Temporal Scripts
+EVASim/criteo_day0.sh
+EVASim/criteo_test.sh
 EVASim/multi_run_sim.sh
 EVASim/temp_run_sim.sh
 EVASim/run_sim_test_cpp.sh
@@ -53,7 +55,7 @@ EVASim/oracle_trace_all.txt
 EVASim/datasets/dlrm/reuse_high_test2.txt
 EVASim/datasets/vectordb/deep250m_large_100m.txt
 EVASim/datasets/vectordb/deep250m_small_100m.txt
-
+EVASim/logger_first_batch_entries.txt
 
 
 

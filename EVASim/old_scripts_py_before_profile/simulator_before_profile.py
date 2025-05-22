@@ -63,7 +63,6 @@ if __name__ == "__main__":
     parser.add_argument("--output-name", type=int, default=0)
     parser.add_argument("--batch-size", type=int, default=1024)
     parser.add_argument("--lookups-per-sample", type=int, default=150)
-    parser.add_argument("--profiling-multiplier", type=int, default=1)
     
     # argparses
     args = parser.parse_args()
@@ -76,9 +75,6 @@ if __name__ == "__main__":
     bsz = args.batch_size # batch size
     fname = args.data_generation
     num_indices_per_lookup = args.lookups_per_sample # pooling factor or lookups per sample
-    
-    prof_multiplier = args.profiling_multiplier
-    
     # Parse the memory config file
     script_dir = os.path.dirname(os.path.abspath(__file__))
     mem_config_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), 
@@ -196,7 +192,7 @@ if __name__ == "__main__":
     
     # Create mem_struct
     if mem_type == "spad":
-        mem_struct = MemSpad(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, prof_multiplier)
+        mem_struct = MemSpad(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte)
     elif mem_type == "cache":
         mem_struct = MemCache(mem_size, mem_type, cache_config, emb_dim, emb_dataset, n_format_byte)
     elif mem_type == "profile":
@@ -208,7 +204,7 @@ if __name__ == "__main__":
         print("[DEBUG] profiled_path: {}".format(profiled_path))
         # print("[DEBUG] argument of mem_struct: {}, {}, {}, {}, {}, {}, {}, {}".format(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path))
         
-        mem_struct = MemProfile(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path, prof_multiplier)        
+        mem_struct = MemProfile(mem_size, mem_type, cache_config, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, profiled_path)        
         
         # if mem_policy == "profile_dynamic_count":
         mem_struct.set_index_trace(reqgen.lS_i)
