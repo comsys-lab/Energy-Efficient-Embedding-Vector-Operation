@@ -36,6 +36,7 @@ EVASim/results_test
 EVASim/results_1mperiod
 EVASim/results_Batchperiod_bormin
 EVASim/results_energy
+EVASim/results_energy_128mb
 EVASim/results_Batchperiod0204/
 EVASim/ls_i.txt
 EVASim/oracle_trace_all.txt
