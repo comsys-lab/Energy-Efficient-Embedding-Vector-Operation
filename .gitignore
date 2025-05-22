@@ -1,33 +1,64 @@
-# EVASim
-EVASim/MemStructure.py
+### pycaches
 EVASim/__pycache__
 EVASim/src/__pycache__
-EVASim/results_ed_r_nt_lk_nb_bs
-EVASim/results_test
+
+
+### Temporal or Ongoing Codes
+EVASim/src/ongoing_cpp
+EVASim/src/test_lru_cache.py
+
+
+### Temporal Scripts
 EVASim/multi_run_sim.sh
 EVASim/temp_run_sim.sh
 EVASim/run_sim_test_cpp.sh
+EVASim/run_sim_test.sh
 # EVASim/run_sim_tf.sh
 EVASim/run_sim_vdb_2.sh
-EVASim/src/ongoing_cpp
-EVASim/src/test_lru_cache.py
-# EVASim/datasets/profiled_datasets
-EVASim/datasets/vectordb/deep250m_train_10m.txt
-EVASim/datasets/vectordb/spacev250m_train_10m.txt
-EVASim/datasets/vectordb/deep250m_train_1B.txt
-EVASim/datasets/vectordb/spacev250m_train_1B.txt
-EVASim/oracle_trace_all.txt
-
-EVASim/results_1mperiod
-EVASim/results_Batchperiod_bormin
-EVASim/results_energy
-
-EVASim/ls_i.txt
-EVASim/results_Batchperiod0204/
 EVASim/run_only_energy.sh
 EVASim/run_sim_test_EOT.sh
 EVASim/run_sim_32.sh
 EVASim/run_sim_32_high.sh
+EVASim/deep_profile_b200_large.sh
+EVASim/deep_profile_b200_small.sh
+EVASim/deep_profile_b200.sh
+EVASim/dlrm_reuse_high_profile_large.sh
+EVASim/dlrm_reuse_high_profile_small.sh
+EVASim/dlrm_reuse_mid_profile_large.sh
+EVASim/dlrm_reuse_mid_profile_small.sh
+
+
+### Temporal Results
+EVASim/results_ed_r_nt_lk_nb_bs
+EVASim/results_test
+EVASim/results_1mperiod
+EVASim/results_Batchperiod_bormin
+EVASim/results_energy
+EVASim/results_Batchperiod0204/
+EVASim/ls_i.txt
+EVASim/oracle_trace_all.txt
+EVASim/oracle_trace.txt
+
+
+### Temporal or Large Datasets
+# EVASim/datasets/profiled_datasets
+EVASim/datasets/dlrm/reuse_high_test.txt
+EVASim/datasets/dlrm/reuse_medium_test.txt
+EVASim/datasets/vectordb/deep250m_train_10m.txt
+EVASim/datasets/vectordb/deep250m_100m.txt
+EVASim/datasets/vectordb/spacev250m_train_10m.txt
+EVASim/datasets/vectordb/deep250m_train_1B.txt
+EVASim/datasets/vectordb/spacev250m_train_1B.txt
+EVASim/oracle_trace_all.txt
+EVASim/datasets/dlrm/reuse_high_test2.txt
+EVASim/datasets/vectordb/deep250m_large_100m.txt
+EVASim/datasets/vectordb/deep250m_small_100m.txt
+
+
+
+
+
+
 
 # rep_figures
 

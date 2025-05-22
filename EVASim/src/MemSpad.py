@@ -8,7 +8,7 @@ from tqdm import tqdm
 from Helper import print_styled_header, print_styled_box
 
 class MemSpad:
-    def __init__(self, mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte):
+    def __init__(self, mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, prof_multiplier=1):
         self.mem_size = 0 ### KB
         self.mem_type = "init"
         self.mem_gran = 0
@@ -24,12 +24,15 @@ class MemSpad:
         self.num_tables = 0
         self.vectors_per_table = 0
         
+        ### this is only for configuring the spm-oracle
+        self.prof_multiplier = 1
+        
         self.access_results = []
         self.spad_load_results = []
                
-        self.set_params(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte)
+        self.set_params(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, prof_multiplier)
         
-    def set_params(self, mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte):
+    def set_params(self, mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, prof_multiplier):
         self.mem_size = mem_size * 1024 # KB -> Byte
         self.mem_type = mem_type # spad or cache
         self.mem_gran = mem_gran
@@ -42,6 +45,9 @@ class MemSpad:
         self.vectors_per_table = vectors_per_table
         # self.access_per_vector = np.ceil(self.emb_dim / self.mem_gran).astype(np.int32)
         self.access_per_vector = np.ceil(self.emb_dim * self.n_format_byte / self.mem_gran).astype(np.int32)
+        
+        ### this is only for configuring the spm-oracle
+        self.prof_multiplier = prof_multiplier
         
         self.spad_size = np.floor(self.mem_size / self.mem_gran).astype(np.int32)
         
@@ -118,9 +124,24 @@ class MemSpad:
         
         elif self.mem_policy == "spad_oracle":
             ### flatten the dataset -> count and sort the access frequency of each memory address
-            flat_dataset = itertools.chain.from_iterable(itertools.chain.from_iterable([self.emb_dataset[self.batch_counter]]))
+            # Collect all addresses from the batches we want to profile
+            # batch_to_oracle_profile = self.batch_counter * self.prof_multiplier
+            end_batch = min(self.batch_counter + self.prof_multiplier, len(self.emb_dataset))
             
-            access_freq = Counter(flat_dataset)
+            # Initialize counter
+            access_freq = Counter()
+            
+            # Process each batch, table, and element
+            for batch_idx in range(self.batch_counter, end_batch):
+                if batch_idx >= len(self.emb_dataset):
+                    break
+                for table in self.emb_dataset[batch_idx]:
+                    # Count each element individually
+                    for addr in table.flatten():
+                        # Make sure we're using a hashable type (Python int)
+                        access_freq[int(addr)] += 1
+            
+            # Get most common addresses
             access_freq = access_freq.most_common()
             
             # temporal test: store reqgen.addr_trace np array in a txt file, each element in each row in the txt file.
@@ -149,7 +170,7 @@ class MemSpad:
             # print(on_mem_set.shape)
             # exit()
         
-        return on_mem_set
+        return set(on_mem_set)
     
     def do_simulation(self):
         # Simulation
@@ -174,10 +195,18 @@ class MemSpad:
                     pbar.update(1)
                     
                 ### Batch-wise oracular profiling
+                # if self.mem_policy == "spad_oracle":
+                #     self.batch_counter = min(self.batch_counter + 1, len(self.emb_dataset)-1)
+                #     self.on_mem = self.set_spad()
+                #     num_spad_load += self.spad_size
+                    
+                ### Oracular profiling using a profiling period
                 if self.mem_policy == "spad_oracle":
                     self.batch_counter = min(self.batch_counter + 1, len(self.emb_dataset)-1)
-                    self.on_mem = self.set_spad()
-                    num_spad_load += self.spad_size
+                    if self.batch_counter % self.prof_multiplier == 0:
+                        self.on_mem = self.set_spad()
+                        num_spad_load += self.spad_size
+                    
             
             self.access_results.append([num_hit, num_miss]) # add the results for each batch
             self.spad_load_results.append(num_spad_load)

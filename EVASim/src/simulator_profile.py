@@ -196,7 +196,7 @@ if __name__ == "__main__":
     
     # Create mem_struct
     if mem_type == "spad":
-        mem_struct = MemSpad(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte)
+        mem_struct = MemSpad(mem_size, mem_type, emb_dim, emb_dataset, vectors_per_table, mem_gran, n_format_byte, prof_multiplier)
     elif mem_type == "cache":
         mem_struct = MemCache(mem_size, mem_type, cache_config, emb_dim, emb_dataset, n_format_byte)
     elif mem_type == "profile":

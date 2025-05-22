@@ -62,7 +62,7 @@ class MemProfile:
         self.profiled_path = profiled_path
         
         # below configs are only for cache-based profiling configurations
-        self.cache_way = 16 # int(self.mem_size / mem_gran) # cache_config[0] # cache_config = [way, line size]
+        self.cache_way = 128 # int(self.mem_size / mem_gran) # cache_config[0] # cache_config = [way, line size]
         self.cache_line_size = mem_gran # cache_config[1]
         self.cache_set = int(self.mem_size / self.cache_line_size / self.cache_way)
         print("[DEBUG] cache_way: {} cache_line_size: {} cache_set: {}".format(self.cache_way, self.cache_line_size, self.cache_set))
@@ -110,7 +110,7 @@ class MemProfile:
         ### create on-chip memory data structure (spad or cache)        
         if self.mem_policy == "profile_dynamic_cache":            
             # self.logger_size = int((self.mem_size / self.emb_dim) / self.n_format_byte) * self.access_per_vector # multiply access_per_vector to enable the vector-level LRU cache simulation
-            self.logger_size = self.spad_size * 16 # access-level logging -> after all, the logger should be able to contain all the entries in the spad (vector-level logging is meaningless)
+            self.logger_size = self.spad_size # access-level logging -> after all, the logger should be able to contain all the entries in the spad (vector-level logging is meaningless)
             self.logger = LRUCache(self.logger_size) # it simulates fully associative LRU cache
             # print the number of vectors that the logger can contain assuming that logger performs vector-level logging in real implementation (not in this simulation)
             print("[DEBUG] logger can contain {} vectors".format(int(self.logger_size / self.access_per_vector)))
@@ -309,10 +309,11 @@ class MemProfile:
         
     def do_simulation_dcache(self):
         dynamic_counter = 0
-        dynamic_counter_threshold_init = 10 #* self.spad_size
-        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0]))
+        sample_rate = 20
+        dynamic_counter_threshold_init = 10 # * self.spad_size
+        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0])) * self.prof_multiplier
         
-        dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) # number of vectors in the batch
+        dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) * sample_rate # number of vectors in the batch
         
         print("[DEBUG] dynamic_counter_threshold: {}".format(dynamic_counter_threshold))
         
@@ -327,7 +328,7 @@ class MemProfile:
             logger_hit = 0
             logger_miss = 0
             
-            nb=0 #DEBUG
+            nb=jj #DEBUG
             
             print("Simulation for batch {}...".format(nb))
             vectors_in_batch = list(chain.from_iterable(self.emb_dataset[nb]))
@@ -351,9 +352,8 @@ class MemProfile:
                         logger_hit += 1
                     
                     # periodically update the spad
-                    dynamic_counter += 1
-                    # print("[DEBUG] dynamic_counter: {}".format(dynamic_counter))
-                    if dynamic_counter == dynamic_counter_threshold:
+                    dynamic_counter += sample_rate
+                    if dynamic_counter >= dynamic_counter_threshold:
                         # print("[DEBUG] update spad / dynamic_counter: {}".format(dynamic_counter))
                         self.on_mem = self.set_spad()
                         num_spad_load += self.spad_size
@@ -369,10 +369,17 @@ class MemProfile:
     # PYTHON VERSION
     def do_simulation_SRRIP(self):
         dynamic_counter = 0
-        dynamic_counter_threshold_init = 20 #* self.spad_size
-        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0]))
+        sample_rate = 1
+        dynamic_counter_threshold_init = 10 # * self.spad_size
+        vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0])) * self.prof_multiplier
         
-        dynamic_counter_threshold = max(np.ceil(len(vectors_in_batch)/1), dynamic_counter_threshold_init) # number of vectors in the batch        
+        dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) * sample_rate # number of vectors in the batch
+        
+        # dynamic_counter = 0
+        # dynamic_counter_threshold_init = 20 #* self.spad_size
+        # vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0]))
+        
+        # dynamic_counter_threshold = max(np.ceil(len(vectors_in_batch)/1), dynamic_counter_threshold_init) # number of vectors in the batch        
         # dynamic_counter_threshold = 50000 # For testing.
         print("[DEBUG] dynamic_counter_threshold: {}".format(dynamic_counter_threshold))
         
@@ -386,7 +393,7 @@ class MemProfile:
             logger_hit = 0
             logger_miss = 0
             
-            nb=0 #DEBUG
+            nb=jj #DEBUG
             
             print("Simulation for batch {}...".format(nb))
             vectors_in_batch = list(chain.from_iterable(self.emb_dataset[nb]))
@@ -434,13 +441,21 @@ class MemProfile:
                                     self.logger[this_index][:,1] = np.minimum(self.logger[this_index][:,1] + 1, max_rrpv)
                     
                     
+                    # # periodically update the spad
+                    # dynamic_counter += 1
+                    # # print("[DEBUG] dynamic_counter: {}".format(dynamic_counter))
+                    # if dynamic_counter == dynamic_counter_threshold:
+                    #     # Update both on_mem array and set
+                    #     self.on_mem = self.set_spad()
+                    #     self.on_mem_set = set(self.on_mem)
+                    #     num_spad_load += self.spad_size
+                    #     dynamic_counter = 0
+                    
                     # periodically update the spad
-                    dynamic_counter += 1
-                    # print("[DEBUG] dynamic_counter: {}".format(dynamic_counter))
-                    if dynamic_counter == dynamic_counter_threshold:
-                        # Update both on_mem array and set
+                    dynamic_counter += sample_rate
+                    if dynamic_counter >= dynamic_counter_threshold:
+                        # print("[DEBUG] update spad / dynamic_counter: {}".format(dynamic_counter))
                         self.on_mem = self.set_spad()
-                        self.on_mem_set = set(self.on_mem)
                         num_spad_load += self.spad_size
                         dynamic_counter = 0
                     
@@ -513,10 +528,11 @@ class MemProfile:
 
     def do_simulation_dcount(self):
         dynamic_counter = 0
+        sample_rate = 20
         dynamic_counter_threshold_init = 10 # * self.spad_size
         vectors_in_batch = list(chain.from_iterable(self.emb_dataset[0])) * self.prof_multiplier
         
-        dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) # number of vectors in the batch
+        dynamic_counter_threshold = max(len(vectors_in_batch), dynamic_counter_threshold_init) * sample_rate # number of vectors in the batch
         
         print("[DEBUG] dynamic_counter_threshold: {}".format(dynamic_counter_threshold))
         
@@ -548,8 +564,8 @@ class MemProfile:
                                 num_miss += 1
                                 
                             # periodically update the spad
-                            dynamic_counter += 1
-                            if dynamic_counter == dynamic_counter_threshold:
+                            dynamic_counter += sample_rate
+                            if dynamic_counter >= dynamic_counter_threshold:
                                 # print("[DEBUG] update spad / dynamic_counter: {}".format(dynamic_counter))
                                 self.on_mem = self.set_spad()
                                 num_spad_load += self.spad_size

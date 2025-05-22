@@ -1,0 +1,17 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/vectordb/deep250m_100m.txt                                     ║
+║ Numeric format: 32 bits                                                                            ║
+║ Num batches: 100                                                                                   ║
+║ Num tables: 1                                                                                      ║
+║ Batch Size (samples per batch): 1                                                                  ║
+║ Vectors per table: 250000000                                                                       ║
+║ Lookups per sample: 488281                                                                         ║
+║ Embedding Dimension 96                                                                             ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:  17.613547sec)
+[DEBUG] lS_i shape: (100, 1, 488281)
+[DEBUG] addr_trace shape: (100, 1, 1464843)
+Starting multiprocessing with 31 cores...

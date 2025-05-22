@@ -1,0 +1,2079 @@
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 General Simulation Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Dataset: /workspace/EVASim/datasets/dlrm/reuse_medium_test.txt                                     ║
+║ Numeric format: 8 bits                                                                             ║
+║ Num batches: 200                                                                                   ║
+║ Num tables: 512                                                                                    ║
+║ Batch Size (samples per batch): 32                                                                 ║
+║ Vectors per table: 1000000                                                                         ║
+║ Lookups per sample: 170                                                                            ║
+║ Embedding Dimension 256                                                                            ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in model and data gen:  33.658276sec)
+[DEBUG] lS_i shape: (200, 512, 5440)
+[DEBUG] addr_trace shape: (200, 512, 10880)
+Starting multiprocessing with 31 cores...
+(Time elapsed(s) in address generation: 113.047077sec)
+[DEBUG] profiled_path: /workspace/EVASim/datasets/profiled_datasets/reuse_medium_test.txt
+[DEBUG] cache_way: 16 cache_line_size: 128 cache_set: 65536
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 On-Chip Memory Configuration 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Memory size: 134217728 B (128 MB)                                                                  ║
+║ Memory type: profile                                                                               ║
+║ Memory policy: profile_dynamic_count                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] counter array is empty. Set the spad with the naive method.
+on mem data structure size: 8192.11 KB
+(Time elapsed(s) in create memory structure:   1.525941sec)
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Start 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+[DEBUG] dynamic_counter_threshold: 11141120000
+Simulation for batch 0...
+Simulation for batch 1...
+Simulation for batch 2...
+Simulation for batch 3...
+Simulation for batch 4...
+Simulation for batch 5...
+Simulation for batch 6...
+Simulation for batch 7...
+Simulation for batch 8...
+Simulation for batch 9...
+Simulation for batch 10...
+Simulation for batch 11...
+Simulation for batch 12...
+Simulation for batch 13...
+Simulation for batch 14...
+Simulation for batch 15...
+Simulation for batch 16...
+Simulation for batch 17...
+Simulation for batch 18...
+Simulation for batch 19...
+Simulation for batch 20...
+Simulation for batch 21...
+Simulation for batch 22...
+Simulation for batch 23...
+Simulation for batch 24...
+Simulation for batch 25...
+Simulation for batch 26...
+Simulation for batch 27...
+Simulation for batch 28...
+Simulation for batch 29...
+Simulation for batch 30...
+Simulation for batch 31...
+Simulation for batch 32...
+Simulation for batch 33...
+Simulation for batch 34...
+Simulation for batch 35...
+Simulation for batch 36...
+Simulation for batch 37...
+Simulation for batch 38...
+Simulation for batch 39...
+Simulation for batch 40...
+Simulation for batch 41...
+Simulation for batch 42...
+Simulation for batch 43...
+Simulation for batch 44...
+Simulation for batch 45...
+Simulation for batch 46...
+Simulation for batch 47...
+Simulation for batch 48...
+Simulation for batch 49...
+Simulation for batch 50...
+Simulation for batch 51...
+Simulation for batch 52...
+Simulation for batch 53...
+Simulation for batch 54...
+Simulation for batch 55...
+Simulation for batch 56...
+Simulation for batch 57...
+Simulation for batch 58...
+Simulation for batch 59...
+Simulation for batch 60...
+Simulation for batch 61...
+Simulation for batch 62...
+Simulation for batch 63...
+Simulation for batch 64...
+Simulation for batch 65...
+Simulation for batch 66...
+Simulation for batch 67...
+Simulation for batch 68...
+Simulation for batch 69...
+Simulation for batch 70...
+Simulation for batch 71...
+Simulation for batch 72...
+Simulation for batch 73...
+Simulation for batch 74...
+Simulation for batch 75...
+Simulation for batch 76...
+Simulation for batch 77...
+Simulation for batch 78...
+Simulation for batch 79...
+Simulation for batch 80...
+Simulation for batch 81...
+Simulation for batch 82...
+Simulation for batch 83...
+Simulation for batch 84...
+Simulation for batch 85...
+Simulation for batch 86...
+Simulation for batch 87...
+Simulation for batch 88...
+Simulation for batch 89...
+Simulation for batch 90...
+Simulation for batch 91...
+Simulation for batch 92...
+Simulation for batch 93...
+Simulation for batch 94...
+Simulation for batch 95...
+Simulation for batch 96...
+Simulation for batch 97...
+Simulation for batch 98...
+Simulation for batch 99...
+[DEBUG] shape of addresses during dcount set_spad: (524288, 2)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048576,)
+Simulation for batch 100...
+Simulation for batch 101...
+Simulation for batch 102...
+Simulation for batch 103...
+Simulation for batch 104...
+Simulation for batch 105...
+Simulation for batch 106...
+Simulation for batch 107...
+Simulation for batch 108...
+Simulation for batch 109...
+Simulation for batch 110...
+Simulation for batch 111...
+Simulation for batch 112...
+Simulation for batch 113...
+Simulation for batch 114...
+Simulation for batch 115...
+Simulation for batch 116...
+Simulation for batch 117...
+Simulation for batch 118...
+Simulation for batch 119...
+Simulation for batch 120...
+Simulation for batch 121...
+Simulation for batch 122...
+Simulation for batch 123...
+Simulation for batch 124...
+Simulation for batch 125...
+Simulation for batch 126...
+Simulation for batch 127...
+Simulation for batch 128...
+Simulation for batch 129...
+Simulation for batch 130...
+Simulation for batch 131...
+Simulation for batch 132...
+Simulation for batch 133...
+Simulation for batch 134...
+Simulation for batch 135...
+Simulation for batch 136...
+Simulation for batch 137...
+Simulation for batch 138...
+Simulation for batch 139...
+Simulation for batch 140...
+Simulation for batch 141...
+Simulation for batch 142...
+Simulation for batch 143...
+Simulation for batch 144...
+Simulation for batch 145...
+Simulation for batch 146...
+Simulation for batch 147...
+Simulation for batch 148...
+Simulation for batch 149...
+Simulation for batch 150...
+Simulation for batch 151...
+Simulation for batch 152...
+Simulation for batch 153...
+Simulation for batch 154...
+Simulation for batch 155...
+Simulation for batch 156...
+Simulation for batch 157...
+Simulation for batch 158...
+Simulation for batch 159...
+Simulation for batch 160...
+Simulation for batch 161...
+Simulation for batch 162...
+Simulation for batch 163...
+Simulation for batch 164...
+Simulation for batch 165...
+Simulation for batch 166...
+Simulation for batch 167...
+Simulation for batch 168...
+Simulation for batch 169...
+Simulation for batch 170...
+Simulation for batch 171...
+Simulation for batch 172...
+Simulation for batch 173...
+Simulation for batch 174...
+Simulation for batch 175...
+Simulation for batch 176...
+Simulation for batch 177...
+Simulation for batch 178...
+Simulation for batch 179...
+Simulation for batch 180...
+Simulation for batch 181...
+Simulation for batch 182...
+Simulation for batch 183...
+Simulation for batch 184...
+Simulation for batch 185...
+Simulation for batch 186...
+Simulation for batch 187...
+Simulation for batch 188...
+Simulation for batch 189...
+Simulation for batch 190...
+Simulation for batch 191...
+Simulation for batch 192...
+Simulation for batch 193...
+Simulation for batch 194...
+Simulation for batch 195...
+Simulation for batch 196...
+Simulation for batch 197...
+Simulation for batch 198...
+Simulation for batch 199...
+[DEBUG] shape of addresses during dcount set_spad: (524288, 2)
+[DEBUG] shape of on_mem_set during dcount set_spad: (1048576,)
+Simulation Done
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Simulation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total hit ratio: 0.2487                                                                            ║
+║ Total accesses: 1114112000                                                                         ║
+║ Total hits: 277048678                                                                              ║
+║ Total misses: 837063322                                                                            ║
+║                                                                                                    ║
+║ Per batch results:                                                                                 ║
+║ [Batch 0] hit ratio: 0.0011 accesses: 5570560 hits: 6250 misses: 5564310                           ║
+║ [Batch 0] spad load: 0                                                                             ║
+║ [Batch 1] hit ratio: 0.0011 accesses: 5570560 hits: 6248 misses: 5564312                           ║
+║ [Batch 1] spad load: 0                                                                             ║
+║ [Batch 2] hit ratio: 0.0011 accesses: 5570560 hits: 6250 misses: 5564310                           ║
+║ [Batch 2] spad load: 0                                                                             ║
+║ [Batch 3] hit ratio: 0.0011 accesses: 5570560 hits: 6258 misses: 5564302                           ║
+║ [Batch 3] spad load: 0                                                                             ║
+║ [Batch 4] hit ratio: 0.0011 accesses: 5570560 hits: 6248 misses: 5564312                           ║
+║ [Batch 4] spad load: 0                                                                             ║
+║ [Batch 5] hit ratio: 0.0011 accesses: 5570560 hits: 6226 misses: 5564334                           ║
+║ [Batch 5] spad load: 0                                                                             ║
+║ [Batch 6] hit ratio: 0.0011 accesses: 5570560 hits: 6224 misses: 5564336                           ║
+║ [Batch 6] spad load: 0                                                                             ║
+║ [Batch 7] hit ratio: 0.0011 accesses: 5570560 hits: 6218 misses: 5564342                           ║
+║ [Batch 7] spad load: 0                                                                             ║
+║ [Batch 8] hit ratio: 0.0011 accesses: 5570560 hits: 6212 misses: 5564348                           ║
+║ [Batch 8] spad load: 0                                                                             ║
+║ [Batch 9] hit ratio: 0.0011 accesses: 5570560 hits: 6216 misses: 5564344                           ║
+║ [Batch 9] spad load: 0                                                                             ║
+║ [Batch 10] hit ratio: 0.0011 accesses: 5570560 hits: 6208 misses: 5564352                          ║
+║ [Batch 10] spad load: 0                                                                            ║
+║ [Batch 11] hit ratio: 0.0011 accesses: 5570560 hits: 6190 misses: 5564370                          ║
+║ [Batch 11] spad load: 0                                                                            ║
+║ [Batch 12] hit ratio: 0.0011 accesses: 5570560 hits: 6188 misses: 5564372                          ║
+║ [Batch 12] spad load: 0                                                                            ║
+║ [Batch 13] hit ratio: 0.0011 accesses: 5570560 hits: 6182 misses: 5564378                          ║
+║ [Batch 13] spad load: 0                                                                            ║
+║ [Batch 14] hit ratio: 0.0011 accesses: 5570560 hits: 6176 misses: 5564384                          ║
+║ [Batch 14] spad load: 0                                                                            ║
+║ [Batch 15] hit ratio: 0.0011 accesses: 5570560 hits: 6176 misses: 5564384                          ║
+║ [Batch 15] spad load: 0                                                                            ║
+║ [Batch 16] hit ratio: 0.0011 accesses: 5570560 hits: 6174 misses: 5564386                          ║
+║ [Batch 16] spad load: 0                                                                            ║
+║ [Batch 17] hit ratio: 0.0011 accesses: 5570560 hits: 6166 misses: 5564394                          ║
+║ [Batch 17] spad load: 0                                                                            ║
+║ [Batch 18] hit ratio: 0.0011 accesses: 5570560 hits: 6158 misses: 5564402                          ║
+║ [Batch 18] spad load: 0                                                                            ║
+║ [Batch 19] hit ratio: 0.0011 accesses: 5570560 hits: 6158 misses: 5564402                          ║
+║ [Batch 19] spad load: 0                                                                            ║
+║ [Batch 20] hit ratio: 0.0011 accesses: 5570560 hits: 6154 misses: 5564406                          ║
+║ [Batch 20] spad load: 0                                                                            ║
+║ [Batch 21] hit ratio: 0.0011 accesses: 5570560 hits: 6148 misses: 5564412                          ║
+║ [Batch 21] spad load: 0                                                                            ║
+║ [Batch 22] hit ratio: 0.0011 accesses: 5570560 hits: 6152 misses: 5564408                          ║
+║ [Batch 22] spad load: 0                                                                            ║
+║ [Batch 23] hit ratio: 0.0011 accesses: 5570560 hits: 6138 misses: 5564422                          ║
+║ [Batch 23] spad load: 0                                                                            ║
+║ [Batch 24] hit ratio: 0.0011 accesses: 5570560 hits: 6146 misses: 5564414                          ║
+║ [Batch 24] spad load: 0                                                                            ║
+║ [Batch 25] hit ratio: 0.0011 accesses: 5570560 hits: 6144 misses: 5564416                          ║
+║ [Batch 25] spad load: 0                                                                            ║
+║ [Batch 26] hit ratio: 0.0011 accesses: 5570560 hits: 6130 misses: 5564430                          ║
+║ [Batch 26] spad load: 0                                                                            ║
+║ [Batch 27] hit ratio: 0.0011 accesses: 5570560 hits: 6140 misses: 5564420                          ║
+║ [Batch 27] spad load: 0                                                                            ║
+║ [Batch 28] hit ratio: 0.0011 accesses: 5570560 hits: 6142 misses: 5564418                          ║
+║ [Batch 28] spad load: 0                                                                            ║
+║ [Batch 29] hit ratio: 0.0011 accesses: 5570560 hits: 6142 misses: 5564418                          ║
+║ [Batch 29] spad load: 0                                                                            ║
+║ [Batch 30] hit ratio: 0.0011 accesses: 5570560 hits: 6140 misses: 5564420                          ║
+║ [Batch 30] spad load: 0                                                                            ║
+║ [Batch 31] hit ratio: 0.0011 accesses: 5570560 hits: 6136 misses: 5564424                          ║
+║ [Batch 31] spad load: 0                                                                            ║
+║ [Batch 32] hit ratio: 0.0011 accesses: 5570560 hits: 6134 misses: 5564426                          ║
+║ [Batch 32] spad load: 0                                                                            ║
+║ [Batch 33] hit ratio: 0.0011 accesses: 5570560 hits: 6128 misses: 5564432                          ║
+║ [Batch 33] spad load: 0                                                                            ║
+║ [Batch 34] hit ratio: 0.0011 accesses: 5570560 hits: 6122 misses: 5564438                          ║
+║ [Batch 34] spad load: 0                                                                            ║
+║ [Batch 35] hit ratio: 0.0011 accesses: 5570560 hits: 6128 misses: 5564432                          ║
+║ [Batch 35] spad load: 0                                                                            ║
+║ [Batch 36] hit ratio: 0.0011 accesses: 5570560 hits: 6138 misses: 5564422                          ║
+║ [Batch 36] spad load: 0                                                                            ║
+║ [Batch 37] hit ratio: 0.0011 accesses: 5570560 hits: 6130 misses: 5564430                          ║
+║ [Batch 37] spad load: 0                                                                            ║
+║ [Batch 38] hit ratio: 0.0011 accesses: 5570560 hits: 6134 misses: 5564426                          ║
+║ [Batch 38] spad load: 0                                                                            ║
+║ [Batch 39] hit ratio: 0.0011 accesses: 5570560 hits: 6122 misses: 5564438                          ║
+║ [Batch 39] spad load: 0                                                                            ║
+║ [Batch 40] hit ratio: 0.0011 accesses: 5570560 hits: 6118 misses: 5564442                          ║
+║ [Batch 40] spad load: 0                                                                            ║
+║ [Batch 41] hit ratio: 0.0011 accesses: 5570560 hits: 6110 misses: 5564450                          ║
+║ [Batch 41] spad load: 0                                                                            ║
+║ [Batch 42] hit ratio: 0.0011 accesses: 5570560 hits: 6098 misses: 5564462                          ║
+║ [Batch 42] spad load: 0                                                                            ║
+║ [Batch 43] hit ratio: 0.0011 accesses: 5570560 hits: 6098 misses: 5564462                          ║
+║ [Batch 43] spad load: 0                                                                            ║
+║ [Batch 44] hit ratio: 0.0011 accesses: 5570560 hits: 6100 misses: 5564460                          ║
+║ [Batch 44] spad load: 0                                                                            ║
+║ [Batch 45] hit ratio: 0.0011 accesses: 5570560 hits: 6086 misses: 5564474                          ║
+║ [Batch 45] spad load: 0                                                                            ║
+║ [Batch 46] hit ratio: 0.0011 accesses: 5570560 hits: 6086 misses: 5564474                          ║
+║ [Batch 46] spad load: 0                                                                            ║
+║ [Batch 47] hit ratio: 0.0011 accesses: 5570560 hits: 6080 misses: 5564480                          ║
+║ [Batch 47] spad load: 0                                                                            ║
+║ [Batch 48] hit ratio: 0.0011 accesses: 5570560 hits: 6070 misses: 5564490                          ║
+║ [Batch 48] spad load: 0                                                                            ║
+║ [Batch 49] hit ratio: 0.0011 accesses: 5570560 hits: 6070 misses: 5564490                          ║
+║ [Batch 49] spad load: 0                                                                            ║
+║ [Batch 50] hit ratio: 0.0011 accesses: 5570560 hits: 6076 misses: 5564484                          ║
+║ [Batch 50] spad load: 0                                                                            ║
+║ [Batch 51] hit ratio: 0.0011 accesses: 5570560 hits: 6084 misses: 5564476                          ║
+║ [Batch 51] spad load: 0                                                                            ║
+║ [Batch 52] hit ratio: 0.0011 accesses: 5570560 hits: 6086 misses: 5564474                          ║
+║ [Batch 52] spad load: 0                                                                            ║
+║ [Batch 53] hit ratio: 0.0011 accesses: 5570560 hits: 6080 misses: 5564480                          ║
+║ [Batch 53] spad load: 0                                                                            ║
+║ [Batch 54] hit ratio: 0.0011 accesses: 5570560 hits: 6078 misses: 5564482                          ║
+║ [Batch 54] spad load: 0                                                                            ║
+║ [Batch 55] hit ratio: 0.0011 accesses: 5570560 hits: 6084 misses: 5564476                          ║
+║ [Batch 55] spad load: 0                                                                            ║
+║ [Batch 56] hit ratio: 0.0011 accesses: 5570560 hits: 6080 misses: 5564480                          ║
+║ [Batch 56] spad load: 0                                                                            ║
+║ [Batch 57] hit ratio: 0.0011 accesses: 5570560 hits: 6086 misses: 5564474                          ║
+║ [Batch 57] spad load: 0                                                                            ║
+║ [Batch 58] hit ratio: 0.0011 accesses: 5570560 hits: 6084 misses: 5564476                          ║
+║ [Batch 58] spad load: 0                                                                            ║
+║ [Batch 59] hit ratio: 0.0011 accesses: 5570560 hits: 6072 misses: 5564488                          ║
+║ [Batch 59] spad load: 0                                                                            ║
+║ [Batch 60] hit ratio: 0.0011 accesses: 5570560 hits: 6070 misses: 5564490                          ║
+║ [Batch 60] spad load: 0                                                                            ║
+║ [Batch 61] hit ratio: 0.0011 accesses: 5570560 hits: 6064 misses: 5564496                          ║
+║ [Batch 61] spad load: 0                                                                            ║
+║ [Batch 62] hit ratio: 0.0011 accesses: 5570560 hits: 6062 misses: 5564498                          ║
+║ [Batch 62] spad load: 0                                                                            ║
+║ [Batch 63] hit ratio: 0.0011 accesses: 5570560 hits: 6068 misses: 5564492                          ║
+║ [Batch 63] spad load: 0                                                                            ║
+║ [Batch 64] hit ratio: 0.0011 accesses: 5570560 hits: 6064 misses: 5564496                          ║
+║ [Batch 64] spad load: 0                                                                            ║
+║ [Batch 65] hit ratio: 0.0011 accesses: 5570560 hits: 6066 misses: 5564494                          ║
+║ [Batch 65] spad load: 0                                                                            ║
+║ [Batch 66] hit ratio: 0.0011 accesses: 5570560 hits: 6068 misses: 5564492                          ║
+║ [Batch 66] spad load: 0                                                                            ║
+║ [Batch 67] hit ratio: 0.0011 accesses: 5570560 hits: 6058 misses: 5564502                          ║
+║ [Batch 67] spad load: 0                                                                            ║
+║ [Batch 68] hit ratio: 0.0011 accesses: 5570560 hits: 6062 misses: 5564498                          ║
+║ [Batch 68] spad load: 0                                                                            ║
+║ [Batch 69] hit ratio: 0.0011 accesses: 5570560 hits: 6052 misses: 5564508                          ║
+║ [Batch 69] spad load: 0                                                                            ║
+║ [Batch 70] hit ratio: 0.0011 accesses: 5570560 hits: 6056 misses: 5564504                          ║
+║ [Batch 70] spad load: 0                                                                            ║
+║ [Batch 71] hit ratio: 0.0011 accesses: 5570560 hits: 6048 misses: 5564512                          ║
+║ [Batch 71] spad load: 0                                                                            ║
+║ [Batch 72] hit ratio: 0.0011 accesses: 5570560 hits: 6036 misses: 5564524                          ║
+║ [Batch 72] spad load: 0                                                                            ║
+║ [Batch 73] hit ratio: 0.0011 accesses: 5570560 hits: 6040 misses: 5564520                          ║
+║ [Batch 73] spad load: 0                                                                            ║
+║ [Batch 74] hit ratio: 0.0011 accesses: 5570560 hits: 6034 misses: 5564526                          ║
+║ [Batch 74] spad load: 0                                                                            ║
+║ [Batch 75] hit ratio: 0.0011 accesses: 5570560 hits: 6032 misses: 5564528                          ║
+║ [Batch 75] spad load: 0                                                                            ║
+║ [Batch 76] hit ratio: 0.0011 accesses: 5570560 hits: 6028 misses: 5564532                          ║
+║ [Batch 76] spad load: 0                                                                            ║
+║ [Batch 77] hit ratio: 0.0011 accesses: 5570560 hits: 6018 misses: 5564542                          ║
+║ [Batch 77] spad load: 0                                                                            ║
+║ [Batch 78] hit ratio: 0.0011 accesses: 5570560 hits: 6018 misses: 5564542                          ║
+║ [Batch 78] spad load: 0                                                                            ║
+║ [Batch 79] hit ratio: 0.0011 accesses: 5570560 hits: 6004 misses: 5564556                          ║
+║ [Batch 79] spad load: 0                                                                            ║
+║ [Batch 80] hit ratio: 0.0011 accesses: 5570560 hits: 6000 misses: 5564560                          ║
+║ [Batch 80] spad load: 0                                                                            ║
+║ [Batch 81] hit ratio: 0.0011 accesses: 5570560 hits: 5988 misses: 5564572                          ║
+║ [Batch 81] spad load: 0                                                                            ║
+║ [Batch 82] hit ratio: 0.0011 accesses: 5570560 hits: 5998 misses: 5564562                          ║
+║ [Batch 82] spad load: 0                                                                            ║
+║ [Batch 83] hit ratio: 0.0011 accesses: 5570560 hits: 5998 misses: 5564562                          ║
+║ [Batch 83] spad load: 0                                                                            ║
+║ [Batch 84] hit ratio: 0.0011 accesses: 5570560 hits: 5998 misses: 5564562                          ║
+║ [Batch 84] spad load: 0                                                                            ║
+║ [Batch 85] hit ratio: 0.0011 accesses: 5570560 hits: 5990 misses: 5564570                          ║
+║ [Batch 85] spad load: 0                                                                            ║
+║ [Batch 86] hit ratio: 0.0011 accesses: 5570560 hits: 5984 misses: 5564576                          ║
+║ [Batch 86] spad load: 0                                                                            ║
+║ [Batch 87] hit ratio: 0.0011 accesses: 5570560 hits: 5978 misses: 5564582                          ║
+║ [Batch 87] spad load: 0                                                                            ║
+║ [Batch 88] hit ratio: 0.0011 accesses: 5570560 hits: 5980 misses: 5564580                          ║
+║ [Batch 88] spad load: 0                                                                            ║
+║ [Batch 89] hit ratio: 0.0011 accesses: 5570560 hits: 5972 misses: 5564588                          ║
+║ [Batch 89] spad load: 0                                                                            ║
+║ [Batch 90] hit ratio: 0.0011 accesses: 5570560 hits: 5956 misses: 5564604                          ║
+║ [Batch 90] spad load: 0                                                                            ║
+║ [Batch 91] hit ratio: 0.0011 accesses: 5570560 hits: 5946 misses: 5564614                          ║
+║ [Batch 91] spad load: 0                                                                            ║
+║ [Batch 92] hit ratio: 0.0011 accesses: 5570560 hits: 5942 misses: 5564618                          ║
+║ [Batch 92] spad load: 0                                                                            ║
+║ [Batch 93] hit ratio: 0.0011 accesses: 5570560 hits: 5938 misses: 5564622                          ║
+║ [Batch 93] spad load: 0                                                                            ║
+║ [Batch 94] hit ratio: 0.0011 accesses: 5570560 hits: 5944 misses: 5564616                          ║
+║ [Batch 94] spad load: 0                                                                            ║
+║ [Batch 95] hit ratio: 0.0011 accesses: 5570560 hits: 5930 misses: 5564630                          ║
+║ [Batch 95] spad load: 0                                                                            ║
+║ [Batch 96] hit ratio: 0.0011 accesses: 5570560 hits: 5932 misses: 5564628                          ║
+║ [Batch 96] spad load: 0                                                                            ║
+║ [Batch 97] hit ratio: 0.0011 accesses: 5570560 hits: 5926 misses: 5564634                          ║
+║ [Batch 97] spad load: 0                                                                            ║
+║ [Batch 98] hit ratio: 0.0011 accesses: 5570560 hits: 5920 misses: 5564640                          ║
+║ [Batch 98] spad load: 0                                                                            ║
+║ [Batch 99] hit ratio: 0.0011 accesses: 5570560 hits: 5914 misses: 5564646                          ║
+║ [Batch 99] spad load: 1048576                                                                      ║
+║ [Batch 100] hit ratio: 0.5924 accesses: 5570560 hits: 3300194 misses: 2270366                      ║
+║ [Batch 100] spad load: 0                                                                           ║
+║ [Batch 101] hit ratio: 0.5907 accesses: 5570560 hits: 3290498 misses: 2280062                      ║
+║ [Batch 101] spad load: 0                                                                           ║
+║ [Batch 102] hit ratio: 0.5889 accesses: 5570560 hits: 3280716 misses: 2289844                      ║
+║ [Batch 102] spad load: 0                                                                           ║
+║ [Batch 103] hit ratio: 0.5872 accesses: 5570560 hits: 3270976 misses: 2299584                      ║
+║ [Batch 103] spad load: 0                                                                           ║
+║ [Batch 104] hit ratio: 0.5854 accesses: 5570560 hits: 3260984 misses: 2309576                      ║
+║ [Batch 104] spad load: 0                                                                           ║
+║ [Batch 105] hit ratio: 0.5836 accesses: 5570560 hits: 3251112 misses: 2319448                      ║
+║ [Batch 105] spad load: 0                                                                           ║
+║ [Batch 106] hit ratio: 0.5819 accesses: 5570560 hits: 3241382 misses: 2329178                      ║
+║ [Batch 106] spad load: 0                                                                           ║
+║ [Batch 107] hit ratio: 0.5801 accesses: 5570560 hits: 3231690 misses: 2338870                      ║
+║ [Batch 107] spad load: 0                                                                           ║
+║ [Batch 108] hit ratio: 0.5784 accesses: 5570560 hits: 3221772 misses: 2348788                      ║
+║ [Batch 108] spad load: 0                                                                           ║
+║ [Batch 109] hit ratio: 0.5765 accesses: 5570560 hits: 3211628 misses: 2358932                      ║
+║ [Batch 109] spad load: 0                                                                           ║
+║ [Batch 110] hit ratio: 0.5747 accesses: 5570560 hits: 3201584 misses: 2368976                      ║
+║ [Batch 110] spad load: 0                                                                           ║
+║ [Batch 111] hit ratio: 0.5729 accesses: 5570560 hits: 3191458 misses: 2379102                      ║
+║ [Batch 111] spad load: 0                                                                           ║
+║ [Batch 112] hit ratio: 0.5711 accesses: 5570560 hits: 3181192 misses: 2389368                      ║
+║ [Batch 112] spad load: 0                                                                           ║
+║ [Batch 113] hit ratio: 0.5692 accesses: 5570560 hits: 3170832 misses: 2399728                      ║
+║ [Batch 113] spad load: 0                                                                           ║
+║ [Batch 114] hit ratio: 0.5673 accesses: 5570560 hits: 3160436 misses: 2410124                      ║
+║ [Batch 114] spad load: 0                                                                           ║
+║ [Batch 115] hit ratio: 0.5655 accesses: 5570560 hits: 3150108 misses: 2420452                      ║
+║ [Batch 115] spad load: 0                                                                           ║
+║ [Batch 116] hit ratio: 0.5636 accesses: 5570560 hits: 3139500 misses: 2431060                      ║
+║ [Batch 116] spad load: 0                                                                           ║
+║ [Batch 117] hit ratio: 0.5617 accesses: 5570560 hits: 3129134 misses: 2441426                      ║
+║ [Batch 117] spad load: 0                                                                           ║
+║ [Batch 118] hit ratio: 0.5598 accesses: 5570560 hits: 3118404 misses: 2452156                      ║
+║ [Batch 118] spad load: 0                                                                           ║
+║ [Batch 119] hit ratio: 0.5579 accesses: 5570560 hits: 3107822 misses: 2462738                      ║
+║ [Batch 119] spad load: 0                                                                           ║
+║ [Batch 120] hit ratio: 0.5560 accesses: 5570560 hits: 3097474 misses: 2473086                      ║
+║ [Batch 120] spad load: 0                                                                           ║
+║ [Batch 121] hit ratio: 0.5542 accesses: 5570560 hits: 3086976 misses: 2483584                      ║
+║ [Batch 121] spad load: 0                                                                           ║
+║ [Batch 122] hit ratio: 0.5523 accesses: 5570560 hits: 3076508 misses: 2494052                      ║
+║ [Batch 122] spad load: 0                                                                           ║
+║ [Batch 123] hit ratio: 0.5504 accesses: 5570560 hits: 3065830 misses: 2504730                      ║
+║ [Batch 123] spad load: 0                                                                           ║
+║ [Batch 124] hit ratio: 0.5485 accesses: 5570560 hits: 3055340 misses: 2515220                      ║
+║ [Batch 124] spad load: 0                                                                           ║
+║ [Batch 125] hit ratio: 0.5466 accesses: 5570560 hits: 3044980 misses: 2525580                      ║
+║ [Batch 125] spad load: 0                                                                           ║
+║ [Batch 126] hit ratio: 0.5447 accesses: 5570560 hits: 3034532 misses: 2536028                      ║
+║ [Batch 126] spad load: 0                                                                           ║
+║ [Batch 127] hit ratio: 0.5428 accesses: 5570560 hits: 3023778 misses: 2546782                      ║
+║ [Batch 127] spad load: 0                                                                           ║
+║ [Batch 128] hit ratio: 0.5409 accesses: 5570560 hits: 3013266 misses: 2557294                      ║
+║ [Batch 128] spad load: 0                                                                           ║
+║ [Batch 129] hit ratio: 0.5390 accesses: 5570560 hits: 3002576 misses: 2567984                      ║
+║ [Batch 129] spad load: 0                                                                           ║
+║ [Batch 130] hit ratio: 0.5371 accesses: 5570560 hits: 2991706 misses: 2578854                      ║
+║ [Batch 130] spad load: 0                                                                           ║
+║ [Batch 131] hit ratio: 0.5351 accesses: 5570560 hits: 2980874 misses: 2589686                      ║
+║ [Batch 131] spad load: 0                                                                           ║
+║ [Batch 132] hit ratio: 0.5331 accesses: 5570560 hits: 2969788 misses: 2600772                      ║
+║ [Batch 132] spad load: 0                                                                           ║
+║ [Batch 133] hit ratio: 0.5311 accesses: 5570560 hits: 2958688 misses: 2611872                      ║
+║ [Batch 133] spad load: 0                                                                           ║
+║ [Batch 134] hit ratio: 0.5292 accesses: 5570560 hits: 2947790 misses: 2622770                      ║
+║ [Batch 134] spad load: 0                                                                           ║
+║ [Batch 135] hit ratio: 0.5272 accesses: 5570560 hits: 2936978 misses: 2633582                      ║
+║ [Batch 135] spad load: 0                                                                           ║
+║ [Batch 136] hit ratio: 0.5253 accesses: 5570560 hits: 2926102 misses: 2644458                      ║
+║ [Batch 136] spad load: 0                                                                           ║
+║ [Batch 137] hit ratio: 0.5233 accesses: 5570560 hits: 2915236 misses: 2655324                      ║
+║ [Batch 137] spad load: 0                                                                           ║
+║ [Batch 138] hit ratio: 0.5213 accesses: 5570560 hits: 2904020 misses: 2666540                      ║
+║ [Batch 138] spad load: 0                                                                           ║
+║ [Batch 139] hit ratio: 0.5193 accesses: 5570560 hits: 2893004 misses: 2677556                      ║
+║ [Batch 139] spad load: 0                                                                           ║
+║ [Batch 140] hit ratio: 0.5173 accesses: 5570560 hits: 2881826 misses: 2688734                      ║
+║ [Batch 140] spad load: 0                                                                           ║
+║ [Batch 141] hit ratio: 0.5153 accesses: 5570560 hits: 2870452 misses: 2700108                      ║
+║ [Batch 141] spad load: 0                                                                           ║
+║ [Batch 142] hit ratio: 0.5133 accesses: 5570560 hits: 2859430 misses: 2711130                      ║
+║ [Batch 142] spad load: 0                                                                           ║
+║ [Batch 143] hit ratio: 0.5113 accesses: 5570560 hits: 2848276 misses: 2722284                      ║
+║ [Batch 143] spad load: 0                                                                           ║
+║ [Batch 144] hit ratio: 0.5093 accesses: 5570560 hits: 2836932 misses: 2733628                      ║
+║ [Batch 144] spad load: 0                                                                           ║
+║ [Batch 145] hit ratio: 0.5072 accesses: 5570560 hits: 2825398 misses: 2745162                      ║
+║ [Batch 145] spad load: 0                                                                           ║
+║ [Batch 146] hit ratio: 0.5051 accesses: 5570560 hits: 2813832 misses: 2756728                      ║
+║ [Batch 146] spad load: 0                                                                           ║
+║ [Batch 147] hit ratio: 0.5030 accesses: 5570560 hits: 2802080 misses: 2768480                      ║
+║ [Batch 147] spad load: 0                                                                           ║
+║ [Batch 148] hit ratio: 0.5010 accesses: 5570560 hits: 2790746 misses: 2779814                      ║
+║ [Batch 148] spad load: 0                                                                           ║
+║ [Batch 149] hit ratio: 0.4989 accesses: 5570560 hits: 2779324 misses: 2791236                      ║
+║ [Batch 149] spad load: 0                                                                           ║
+║ [Batch 150] hit ratio: 0.4969 accesses: 5570560 hits: 2767782 misses: 2802778                      ║
+║ [Batch 150] spad load: 0                                                                           ║
+║ [Batch 151] hit ratio: 0.4948 accesses: 5570560 hits: 2756258 misses: 2814302                      ║
+║ [Batch 151] spad load: 0                                                                           ║
+║ [Batch 152] hit ratio: 0.4927 accesses: 5570560 hits: 2744752 misses: 2825808                      ║
+║ [Batch 152] spad load: 0                                                                           ║
+║ [Batch 153] hit ratio: 0.4907 accesses: 5570560 hits: 2733302 misses: 2837258                      ║
+║ [Batch 153] spad load: 0                                                                           ║
+║ [Batch 154] hit ratio: 0.4886 accesses: 5570560 hits: 2721720 misses: 2848840                      ║
+║ [Batch 154] spad load: 0                                                                           ║
+║ [Batch 155] hit ratio: 0.4865 accesses: 5570560 hits: 2710182 misses: 2860378                      ║
+║ [Batch 155] spad load: 0                                                                           ║
+║ [Batch 156] hit ratio: 0.4844 accesses: 5570560 hits: 2698570 misses: 2871990                      ║
+║ [Batch 156] spad load: 0                                                                           ║
+║ [Batch 157] hit ratio: 0.4823 accesses: 5570560 hits: 2686832 misses: 2883728                      ║
+║ [Batch 157] spad load: 0                                                                           ║
+║ [Batch 158] hit ratio: 0.4802 accesses: 5570560 hits: 2674988 misses: 2895572                      ║
+║ [Batch 158] spad load: 0                                                                           ║
+║ [Batch 159] hit ratio: 0.4781 accesses: 5570560 hits: 2663482 misses: 2907078                      ║
+║ [Batch 159] spad load: 0                                                                           ║
+║ [Batch 160] hit ratio: 0.4761 accesses: 5570560 hits: 2652220 misses: 2918340                      ║
+║ [Batch 160] spad load: 0                                                                           ║
+║ [Batch 161] hit ratio: 0.4740 accesses: 5570560 hits: 2640446 misses: 2930114                      ║
+║ [Batch 161] spad load: 0                                                                           ║
+║ [Batch 162] hit ratio: 0.4719 accesses: 5570560 hits: 2628958 misses: 2941602                      ║
+║ [Batch 162] spad load: 0                                                                           ║
+║ [Batch 163] hit ratio: 0.4698 accesses: 5570560 hits: 2617266 misses: 2953294                      ║
+║ [Batch 163] spad load: 0                                                                           ║
+║ [Batch 164] hit ratio: 0.4678 accesses: 5570560 hits: 2605766 misses: 2964794                      ║
+║ [Batch 164] spad load: 0                                                                           ║
+║ [Batch 165] hit ratio: 0.4657 accesses: 5570560 hits: 2594364 misses: 2976196                      ║
+║ [Batch 165] spad load: 0                                                                           ║
+║ [Batch 166] hit ratio: 0.4636 accesses: 5570560 hits: 2582630 misses: 2987930                      ║
+║ [Batch 166] spad load: 0                                                                           ║
+║ [Batch 167] hit ratio: 0.4615 accesses: 5570560 hits: 2570878 misses: 2999682                      ║
+║ [Batch 167] spad load: 0                                                                           ║
+║ [Batch 168] hit ratio: 0.4594 accesses: 5570560 hits: 2559388 misses: 3011172                      ║
+║ [Batch 168] spad load: 0                                                                           ║
+║ [Batch 169] hit ratio: 0.4574 accesses: 5570560 hits: 2547992 misses: 3022568                      ║
+║ [Batch 169] spad load: 0                                                                           ║
+║ [Batch 170] hit ratio: 0.4553 accesses: 5570560 hits: 2536456 misses: 3034104                      ║
+║ [Batch 170] spad load: 0                                                                           ║
+║ [Batch 171] hit ratio: 0.4532 accesses: 5570560 hits: 2524704 misses: 3045856                      ║
+║ [Batch 171] spad load: 0                                                                           ║
+║ [Batch 172] hit ratio: 0.4511 accesses: 5570560 hits: 2513000 misses: 3057560                      ║
+║ [Batch 172] spad load: 0                                                                           ║
+║ [Batch 173] hit ratio: 0.4490 accesses: 5570560 hits: 2501118 misses: 3069442                      ║
+║ [Batch 173] spad load: 0                                                                           ║
+║ [Batch 174] hit ratio: 0.4468 accesses: 5570560 hits: 2489188 misses: 3081372                      ║
+║ [Batch 174] spad load: 0                                                                           ║
+║ [Batch 175] hit ratio: 0.4447 accesses: 5570560 hits: 2477358 misses: 3093202                      ║
+║ [Batch 175] spad load: 0                                                                           ║
+║ [Batch 176] hit ratio: 0.4426 accesses: 5570560 hits: 2465462 misses: 3105098                      ║
+║ [Batch 176] spad load: 0                                                                           ║
+║ [Batch 177] hit ratio: 0.4404 accesses: 5570560 hits: 2453552 misses: 3117008                      ║
+║ [Batch 177] spad load: 0                                                                           ║
+║ [Batch 178] hit ratio: 0.4383 accesses: 5570560 hits: 2441638 misses: 3128922                      ║
+║ [Batch 178] spad load: 0                                                                           ║
+║ [Batch 179] hit ratio: 0.4362 accesses: 5570560 hits: 2429842 misses: 3140718                      ║
+║ [Batch 179] spad load: 0                                                                           ║
+║ [Batch 180] hit ratio: 0.4341 accesses: 5570560 hits: 2417994 misses: 3152566                      ║
+║ [Batch 180] spad load: 0                                                                           ║
+║ [Batch 181] hit ratio: 0.4319 accesses: 5570560 hits: 2406072 misses: 3164488                      ║
+║ [Batch 181] spad load: 0                                                                           ║
+║ [Batch 182] hit ratio: 0.4298 accesses: 5570560 hits: 2394094 misses: 3176466                      ║
+║ [Batch 182] spad load: 0                                                                           ║
+║ [Batch 183] hit ratio: 0.4277 accesses: 5570560 hits: 2382384 misses: 3188176                      ║
+║ [Batch 183] spad load: 0                                                                           ║
+║ [Batch 184] hit ratio: 0.4256 accesses: 5570560 hits: 2370774 misses: 3199786                      ║
+║ [Batch 184] spad load: 0                                                                           ║
+║ [Batch 185] hit ratio: 0.4235 accesses: 5570560 hits: 2359158 misses: 3211402                      ║
+║ [Batch 185] spad load: 0                                                                           ║
+║ [Batch 186] hit ratio: 0.4214 accesses: 5570560 hits: 2347306 misses: 3223254                      ║
+║ [Batch 186] spad load: 0                                                                           ║
+║ [Batch 187] hit ratio: 0.4192 accesses: 5570560 hits: 2335422 misses: 3235138                      ║
+║ [Batch 187] spad load: 0                                                                           ║
+║ [Batch 188] hit ratio: 0.4171 accesses: 5570560 hits: 2323590 misses: 3246970                      ║
+║ [Batch 188] spad load: 0                                                                           ║
+║ [Batch 189] hit ratio: 0.4149 accesses: 5570560 hits: 2311398 misses: 3259162                      ║
+║ [Batch 189] spad load: 0                                                                           ║
+║ [Batch 190] hit ratio: 0.4127 accesses: 5570560 hits: 2299158 misses: 3271402                      ║
+║ [Batch 190] spad load: 0                                                                           ║
+║ [Batch 191] hit ratio: 0.4106 accesses: 5570560 hits: 2287252 misses: 3283308                      ║
+║ [Batch 191] spad load: 0                                                                           ║
+║ [Batch 192] hit ratio: 0.4085 accesses: 5570560 hits: 2275468 misses: 3295092                      ║
+║ [Batch 192] spad load: 0                                                                           ║
+║ [Batch 193] hit ratio: 0.4063 accesses: 5570560 hits: 2263580 misses: 3306980                      ║
+║ [Batch 193] spad load: 0                                                                           ║
+║ [Batch 194] hit ratio: 0.4043 accesses: 5570560 hits: 2252036 misses: 3318524                      ║
+║ [Batch 194] spad load: 0                                                                           ║
+║ [Batch 195] hit ratio: 0.4021 accesses: 5570560 hits: 2239982 misses: 3330578                      ║
+║ [Batch 195] spad load: 0                                                                           ║
+║ [Batch 196] hit ratio: 0.3999 accesses: 5570560 hits: 2227816 misses: 3342744                      ║
+║ [Batch 196] spad load: 0                                                                           ║
+║ [Batch 197] hit ratio: 0.3978 accesses: 5570560 hits: 2215836 misses: 3354724                      ║
+║ [Batch 197] spad load: 0                                                                           ║
+║ [Batch 198] hit ratio: 0.3956 accesses: 5570560 hits: 2203690 misses: 3366870                      ║
+║ [Batch 198] spad load: 0                                                                           ║
+║ [Batch 199] hit ratio: 0.3934 accesses: 5570560 hits: 2191628 misses: 3378932                      ║
+║ [Batch 199] spad load: 1048576                                                                     ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in do simulation: 754.859097sec)
+[DEBUG] workload_type: dlrm
+
+
+
+ START ENERGY ESTIMATION 
+
+Setting parameters for energy estimation...
+Setting workload configuration...
+Setting energy table configuration...
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+ [DEBUG] action type and count for op 0: add 708837376.0
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+
+╔════════════════════════════════════════════════════════════════════════════════════════════════════╗
+║▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒《 Energy Estimation Results 》▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒║
+╠════════════════════════════════════════════════════════════════════════════════════════════════════╣
+║ Total Energy: 4822663259048.962 pJ                                                                 ║
+║ Off-chip Memory Energy: 4687554603200.000 pJ (97.20%)                                              ║
+║ On-chip Memory Energy: 130855631592.960 pJ (2.71%)                                                 ║
+║ Operations Energy:                                                                                 ║
+║   - Operation 0: 4253024256.000 pJ (0.09%)                                                         ║
+║                                                                                                    ║
+║ Per-Batch Energy:                                                                                  ║
+║   - Batch 0:                                                                                       ║
+║     Total Energy: 31184353121.280 pJ                                                               ║
+║     Off-chip Memory Energy: 31160136000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2952000.000 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 1:                                                                                       ║
+║     Total Energy: 31184363376.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31160147200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2951055.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 2:                                                                                       ║
+║     Total Energy: 31184353121.280 pJ                                                               ║
+║     Off-chip Memory Energy: 31160136000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2952000.000 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 3:                                                                                       ║
+║     Total Energy: 31184312099.840 pJ                                                               ║
+║     Off-chip Memory Energy: 31160091200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2955778.560 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 4:                                                                                       ║
+║     Total Energy: 31184363376.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31160147200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2951055.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 5:                                                                                       ║
+║     Total Energy: 31184476185.600 pJ                                                               ║
+║     Off-chip Memory Energy: 31160270400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2940664.320 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 6:                                                                                       ║
+║     Total Energy: 31184486440.960 pJ                                                               ║
+║     Off-chip Memory Energy: 31160281600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2939719.680 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 7:                                                                                       ║
+║     Total Energy: 31184517207.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31160315200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2936885.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 8:                                                                                       ║
+║     Total Energy: 31184547973.120 pJ                                                               ║
+║     Off-chip Memory Energy: 31160348800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2934051.840 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 9:                                                                                       ║
+║     Total Energy: 31184527462.400 pJ                                                               ║
+║     Off-chip Memory Energy: 31160326400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2935941.120 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 10:                                                                                      ║
+║     Total Energy: 31184568483.840 pJ                                                               ║
+║     Off-chip Memory Energy: 31160371200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2932162.560 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 11:                                                                                      ║
+║     Total Energy: 31184660782.080 pJ                                                               ║
+║     Off-chip Memory Energy: 31160472000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2923660.800 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 12:                                                                                      ║
+║     Total Energy: 31184671037.440 pJ                                                               ║
+║     Off-chip Memory Energy: 31160483200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2922716.160 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 13:                                                                                      ║
+║     Total Energy: 31184701803.520 pJ                                                               ║
+║     Off-chip Memory Energy: 31160516800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2919882.240 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 14:                                                                                      ║
+║     Total Energy: 31184732569.600 pJ                                                               ║
+║     Off-chip Memory Energy: 31160550400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2917048.320 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 15:                                                                                      ║
+║     Total Energy: 31184732569.600 pJ                                                               ║
+║     Off-chip Memory Energy: 31160550400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2917048.320 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 16:                                                                                      ║
+║     Total Energy: 31184742824.960 pJ                                                               ║
+║     Off-chip Memory Energy: 31160561600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2916103.680 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 17:                                                                                      ║
+║     Total Energy: 31184783846.400 pJ                                                               ║
+║     Off-chip Memory Energy: 31160606400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2912325.120 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 18:                                                                                      ║
+║     Total Energy: 31184824867.840 pJ                                                               ║
+║     Off-chip Memory Energy: 31160651200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2908546.560 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 19:                                                                                      ║
+║     Total Energy: 31184824867.840 pJ                                                               ║
+║     Off-chip Memory Energy: 31160651200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2908546.560 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 20:                                                                                      ║
+║     Total Energy: 31184845378.560 pJ                                                               ║
+║     Off-chip Memory Energy: 31160673600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2906657.280 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 21:                                                                                      ║
+║     Total Energy: 31184876144.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31160707200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2903823.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 22:                                                                                      ║
+║     Total Energy: 31184855633.920 pJ                                                               ║
+║     Off-chip Memory Energy: 31160684800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2905712.640 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 23:                                                                                      ║
+║     Total Energy: 31184927421.440 pJ                                                               ║
+║     Off-chip Memory Energy: 31160763200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2899100.160 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 24:                                                                                      ║
+║     Total Energy: 31184886400.000 pJ                                                               ║
+║     Off-chip Memory Energy: 31160718400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2902878.720 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 25:                                                                                      ║
+║     Total Energy: 31184896655.360 pJ                                                               ║
+║     Off-chip Memory Energy: 31160729600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2901934.080 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 26:                                                                                      ║
+║     Total Energy: 31184968442.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31160808000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2895321.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 27:                                                                                      ║
+║     Total Energy: 31184917166.080 pJ                                                               ║
+║     Off-chip Memory Energy: 31160752000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2900044.800 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 28:                                                                                      ║
+║     Total Energy: 31184906910.720 pJ                                                               ║
+║     Off-chip Memory Energy: 31160740800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2900989.440 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 29:                                                                                      ║
+║     Total Energy: 31184906910.720 pJ                                                               ║
+║     Off-chip Memory Energy: 31160740800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2900989.440 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 30:                                                                                      ║
+║     Total Energy: 31184917166.080 pJ                                                               ║
+║     Off-chip Memory Energy: 31160752000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2900044.800 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 31:                                                                                      ║
+║     Total Energy: 31184937676.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31160774400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2898155.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 32:                                                                                      ║
+║     Total Energy: 31184947932.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31160785600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2897210.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 33:                                                                                      ║
+║     Total Energy: 31184978698.240 pJ                                                               ║
+║     Off-chip Memory Energy: 31160819200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2894376.960 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 34:                                                                                      ║
+║     Total Energy: 31185009464.320 pJ                                                               ║
+║     Off-chip Memory Energy: 31160852800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2891543.040 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 35:                                                                                      ║
+║     Total Energy: 31184978698.240 pJ                                                               ║
+║     Off-chip Memory Energy: 31160819200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2894376.960 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 36:                                                                                      ║
+║     Total Energy: 31184927421.440 pJ                                                               ║
+║     Off-chip Memory Energy: 31160763200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2899100.160 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 37:                                                                                      ║
+║     Total Energy: 31184968442.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31160808000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2895321.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 38:                                                                                      ║
+║     Total Energy: 31184947932.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31160785600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2897210.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 39:                                                                                      ║
+║     Total Energy: 31185009464.320 pJ                                                               ║
+║     Off-chip Memory Energy: 31160852800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2891543.040 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 40:                                                                                      ║
+║     Total Energy: 31185029975.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31160875200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2889653.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 41:                                                                                      ║
+║     Total Energy: 31185070996.480 pJ                                                               ║
+║     Off-chip Memory Energy: 31160920000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2885875.200 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 42:                                                                                      ║
+║     Total Energy: 31185132528.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31160987200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2880207.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 43:                                                                                      ║
+║     Total Energy: 31185132528.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31160987200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2880207.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 44:                                                                                      ║
+║     Total Energy: 31185122273.280 pJ                                                               ║
+║     Off-chip Memory Energy: 31160976000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2881152.000 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 45:                                                                                      ║
+║     Total Energy: 31185194060.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31161054400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2874539.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 46:                                                                                      ║
+║     Total Energy: 31185194060.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31161054400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2874539.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 47:                                                                                      ║
+║     Total Energy: 31185224826.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31161088000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2871705.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 48:                                                                                      ║
+║     Total Energy: 31185276103.680 pJ                                                               ║
+║     Off-chip Memory Energy: 31161144000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2866982.400 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 49:                                                                                      ║
+║     Total Energy: 31185276103.680 pJ                                                               ║
+║     Off-chip Memory Energy: 31161144000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2866982.400 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 50:                                                                                      ║
+║     Total Energy: 31185245337.600 pJ                                                               ║
+║     Off-chip Memory Energy: 31161110400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2869816.320 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 51:                                                                                      ║
+║     Total Energy: 31185204316.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31161065600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2873594.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 52:                                                                                      ║
+║     Total Energy: 31185194060.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31161054400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2874539.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 53:                                                                                      ║
+║     Total Energy: 31185224826.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31161088000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2871705.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 54:                                                                                      ║
+║     Total Energy: 31185235082.240 pJ                                                               ║
+║     Off-chip Memory Energy: 31161099200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2870760.960 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 55:                                                                                      ║
+║     Total Energy: 31185204316.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31161065600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2873594.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 56:                                                                                      ║
+║     Total Energy: 31185224826.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31161088000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2871705.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 57:                                                                                      ║
+║     Total Energy: 31185194060.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31161054400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2874539.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 58:                                                                                      ║
+║     Total Energy: 31185204316.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31161065600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2873594.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 59:                                                                                      ║
+║     Total Energy: 31185265848.320 pJ                                                               ║
+║     Off-chip Memory Energy: 31161132800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2867927.040 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 60:                                                                                      ║
+║     Total Energy: 31185276103.680 pJ                                                               ║
+║     Off-chip Memory Energy: 31161144000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2866982.400 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 61:                                                                                      ║
+║     Total Energy: 31185306869.760 pJ                                                               ║
+║     Off-chip Memory Energy: 31161177600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2864148.480 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 62:                                                                                      ║
+║     Total Energy: 31185317125.120 pJ                                                               ║
+║     Off-chip Memory Energy: 31161188800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2863203.840 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 63:                                                                                      ║
+║     Total Energy: 31185286359.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31161155200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2866037.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 64:                                                                                      ║
+║     Total Energy: 31185306869.760 pJ                                                               ║
+║     Off-chip Memory Energy: 31161177600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2864148.480 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 65:                                                                                      ║
+║     Total Energy: 31185296614.400 pJ                                                               ║
+║     Off-chip Memory Energy: 31161166400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2865093.120 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 66:                                                                                      ║
+║     Total Energy: 31185286359.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31161155200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2866037.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 67:                                                                                      ║
+║     Total Energy: 31185337635.840 pJ                                                               ║
+║     Off-chip Memory Energy: 31161211200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2861314.560 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 68:                                                                                      ║
+║     Total Energy: 31185317125.120 pJ                                                               ║
+║     Off-chip Memory Energy: 31161188800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2863203.840 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 69:                                                                                      ║
+║     Total Energy: 31185368401.920 pJ                                                               ║
+║     Off-chip Memory Energy: 31161244800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2858480.640 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 70:                                                                                      ║
+║     Total Energy: 31185347891.200 pJ                                                               ║
+║     Off-chip Memory Energy: 31161222400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2860369.920 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 71:                                                                                      ║
+║     Total Energy: 31185388912.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31161267200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2856591.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 72:                                                                                      ║
+║     Total Energy: 31185450444.800 pJ                                                               ║
+║     Off-chip Memory Energy: 31161334400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2850923.520 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 73:                                                                                      ║
+║     Total Energy: 31185429934.080 pJ                                                               ║
+║     Off-chip Memory Energy: 31161312000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2852812.800 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 74:                                                                                      ║
+║     Total Energy: 31185460700.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31161345600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2849978.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 75:                                                                                      ║
+║     Total Energy: 31185470955.520 pJ                                                               ║
+║     Off-chip Memory Energy: 31161356800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2849034.240 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 76:                                                                                      ║
+║     Total Energy: 31185491466.240 pJ                                                               ║
+║     Off-chip Memory Energy: 31161379200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2847144.960 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 77:                                                                                      ║
+║     Total Energy: 31185542743.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31161435200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2842421.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 78:                                                                                      ║
+║     Total Energy: 31185542743.040 pJ                                                               ║
+║     Off-chip Memory Energy: 31161435200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2842421.760 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 79:                                                                                      ║
+║     Total Energy: 31185614530.560 pJ                                                               ║
+║     Off-chip Memory Energy: 31161513600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2835809.280 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 80:                                                                                      ║
+║     Total Energy: 31185635041.280 pJ                                                               ║
+║     Off-chip Memory Energy: 31161536000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2833920.000 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 81:                                                                                      ║
+║     Total Energy: 31185696573.440 pJ                                                               ║
+║     Off-chip Memory Energy: 31161603200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2828252.160 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 82:                                                                                      ║
+║     Total Energy: 31185645296.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31161547200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2832975.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 83:                                                                                      ║
+║     Total Energy: 31185645296.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31161547200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2832975.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 84:                                                                                      ║
+║     Total Energy: 31185645296.640 pJ                                                               ║
+║     Off-chip Memory Energy: 31161547200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2832975.360 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 85:                                                                                      ║
+║     Total Energy: 31185686318.080 pJ                                                               ║
+║     Off-chip Memory Energy: 31161592000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2829196.800 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 86:                                                                                      ║
+║     Total Energy: 31185717084.160 pJ                                                               ║
+║     Off-chip Memory Energy: 31161625600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2826362.880 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 87:                                                                                      ║
+║     Total Energy: 31185747850.240 pJ                                                               ║
+║     Off-chip Memory Energy: 31161659200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2823528.960 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 88:                                                                                      ║
+║     Total Energy: 31185737594.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31161648000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2824473.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 89:                                                                                      ║
+║     Total Energy: 31185778616.320 pJ                                                               ║
+║     Off-chip Memory Energy: 31161692800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2820695.040 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 90:                                                                                      ║
+║     Total Energy: 31185860659.200 pJ                                                               ║
+║     Off-chip Memory Energy: 31161782400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2813137.920 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 91:                                                                                      ║
+║     Total Energy: 31185911936.000 pJ                                                               ║
+║     Off-chip Memory Energy: 31161838400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2808414.720 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 92:                                                                                      ║
+║     Total Energy: 31185932446.720 pJ                                                               ║
+║     Off-chip Memory Energy: 31161860800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2806525.440 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 93:                                                                                      ║
+║     Total Energy: 31185952957.440 pJ                                                               ║
+║     Off-chip Memory Energy: 31161883200.000 pJ                                                     ║
+║     On-chip Memory Energy: 2804636.160 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 94:                                                                                      ║
+║     Total Energy: 31185922191.360 pJ                                                               ║
+║     Off-chip Memory Energy: 31161849600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2807470.080 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 95:                                                                                      ║
+║     Total Energy: 31185993978.880 pJ                                                               ║
+║     Off-chip Memory Energy: 31161928000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2800857.600 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 96:                                                                                      ║
+║     Total Energy: 31185983723.520 pJ                                                               ║
+║     Off-chip Memory Energy: 31161916800.000 pJ                                                     ║
+║     On-chip Memory Energy: 2801802.240 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 97:                                                                                      ║
+║     Total Energy: 31186014489.600 pJ                                                               ║
+║     Off-chip Memory Energy: 31161950400.000 pJ                                                     ║
+║     On-chip Memory Energy: 2798968.320 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 98:                                                                                      ║
+║     Total Energy: 31186045255.680 pJ                                                               ║
+║     Off-chip Memory Energy: 31161984000.000 pJ                                                     ║
+║     On-chip Memory Energy: 2796134.400 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 99:                                                                                      ║
+║     Total Energy: 31186076021.760 pJ                                                               ║
+║     Off-chip Memory Energy: 31162017600.000 pJ                                                     ║
+║     On-chip Memory Energy: 2793300.480 pJ                                                          ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 100:                                                                                     ║
+║     Total Energy: 14294062351.360 pJ                                                               ║
+║     Off-chip Memory Energy: 12714049600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1558747630.080 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 101:                                                                                     ║
+║     Total Energy: 14343780336.640 pJ                                                               ║
+║     Off-chip Memory Energy: 12768347200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1554168015.360 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 102:                                                                                     ║
+║     Total Energy: 14393939302.400 pJ                                                               ║
+║     Off-chip Memory Energy: 12823126400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1549547781.120 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 103:                                                                                     ║
+║     Total Energy: 14443882905.600 pJ                                                               ║
+║     Off-chip Memory Energy: 12877670400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1544947384.320 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 104:                                                                                     ║
+║     Total Energy: 14495118684.160 pJ                                                               ║
+║     Off-chip Memory Energy: 12933625600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1540227962.880 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 105:                                                                                     ║
+║     Total Energy: 14545739141.120 pJ                                                               ║
+║     Off-chip Memory Energy: 12988908800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1535565219.840 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 106:                                                                                     ║
+║     Total Energy: 14595631467.520 pJ                                                               ║
+║     Off-chip Memory Energy: 13043396800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1530969546.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 107:                                                                                     ║
+║     Total Energy: 14645328942.080 pJ                                                               ║
+║     Off-chip Memory Energy: 13097672000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1526391820.800 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 108:                                                                                     ║
+║     Total Energy: 14696185272.320 pJ                                                               ║
+║     Off-chip Memory Energy: 13153212800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1521707351.040 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 109:                                                                                     ║
+║     Total Energy: 14748200458.240 pJ                                                               ║
+║     Off-chip Memory Energy: 13210019200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1516916136.960 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 110:                                                                                     ║
+║     Total Energy: 14799702876.160 pJ                                                               ║
+║     Off-chip Memory Energy: 13266265600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1512172154.880 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 111:                                                                                     ║
+║     Total Energy: 14851625763.840 pJ                                                               ║
+║     Off-chip Memory Energy: 13322971200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1507389442.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 112:                                                                                     ║
+║     Total Energy: 14904266526.720 pJ                                                               ║
+║     Off-chip Memory Energy: 13380460800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1502540605.440 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 113:                                                                                     ║
+║     Total Energy: 14957389291.520 pJ                                                               ║
+║     Off-chip Memory Energy: 13438476800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1497647370.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 114:                                                                                     ║
+║     Total Energy: 15010696652.800 pJ                                                               ║
+║     Off-chip Memory Energy: 13496694400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1492737131.520 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 115:                                                                                     ║
+║     Total Energy: 15063655331.840 pJ                                                               ║
+║     Off-chip Memory Energy: 13554531200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1487859010.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 116:                                                                                     ║
+║     Total Energy: 15118049761.280 pJ                                                               ║
+║     Off-chip Memory Energy: 13613936000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1482848640.000 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 117:                                                                                     ║
+║     Total Energy: 15171203292.160 pJ                                                               ║
+║     Off-chip Memory Energy: 13671985600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1477952570.880 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 118:                                                                                     ║
+║     Total Energy: 15226223298.560 pJ                                                               ║
+║     Off-chip Memory Energy: 13732073600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1472884577.280 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 119:                                                                                     ║
+║     Total Energy: 15280484408.320 pJ                                                               ║
+║     Off-chip Memory Energy: 13791332800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1467886487.040 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 120:                                                                                     ║
+║     Total Energy: 15333545640.960 pJ                                                               ║
+║     Off-chip Memory Energy: 13849281600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1462998919.680 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 121:                                                                                     ║
+║     Total Energy: 15387376025.600 pJ                                                               ║
+║     Off-chip Memory Energy: 13908070400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1458040504.320 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 122:                                                                                     ║
+║     Total Energy: 15441052579.840 pJ                                                               ║
+║     Off-chip Memory Energy: 13966691200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1453096258.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 123:                                                                                     ║
+║     Total Energy: 15495805946.880 pJ                                                               ║
+║     Off-chip Memory Energy: 14026488000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1448052825.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 124:                                                                                     ║
+║     Total Energy: 15549595310.080 pJ                                                               ║
+║     Off-chip Memory Energy: 14085232000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1443098188.800 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 125:                                                                                     ║
+║     Total Energy: 15602718074.880 pJ                                                               ║
+║     Off-chip Memory Energy: 14143248000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1438204953.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 126:                                                                                     ║
+║     Total Energy: 15656292075.520 pJ                                                               ║
+║     Off-chip Memory Energy: 14201756800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1433270154.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 127:                                                                                     ║
+║     Total Energy: 15711435146.240 pJ                                                               ║
+║     Off-chip Memory Energy: 14261979200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1428190824.960 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 128:                                                                                     ║
+║     Total Energy: 15765337318.400 pJ                                                               ║
+║     Off-chip Memory Energy: 14320846400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1423225797.120 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 129:                                                                                     ║
+║     Total Energy: 15820152217.600 pJ                                                               ║
+║     Off-chip Memory Energy: 14380710400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1418176696.320 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 130:                                                                                     ║
+║     Total Energy: 15875890099.200 pJ                                                               ║
+║     Off-chip Memory Energy: 14441582400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1413042577.920 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 131:                                                                                     ║
+║     Total Energy: 15931433128.960 pJ                                                               ║
+║     Off-chip Memory Energy: 14502241600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1407926407.680 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 132:                                                                                     ║
+║     Total Energy: 15988278589.440 pJ                                                               ║
+║     Off-chip Memory Energy: 14564323200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1402690268.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 133:                                                                                     ║
+║     Total Energy: 16045195837.440 pJ                                                               ║
+║     Off-chip Memory Energy: 14626483200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1397447516.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 134:                                                                                     ║
+║     Total Energy: 16101077294.080 pJ                                                               ║
+║     Off-chip Memory Energy: 14687512000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1392300172.800 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 135:                                                                                     ║
+║     Total Energy: 16156517770.240 pJ                                                               ║
+║     Off-chip Memory Energy: 14748059200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1387193448.960 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 136:                                                                                     ║
+║     Total Energy: 16212286417.920 pJ                                                               ║
+║     Off-chip Memory Energy: 14808964800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1382056496.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 137:                                                                                     ║
+║     Total Energy: 16268003788.800 pJ                                                               ║
+║     Off-chip Memory Energy: 14869814400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1376924267.520 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 138:                                                                                     ║
+║     Total Energy: 16325515847.680 pJ                                                               ║
+║     Off-chip Memory Energy: 14932624000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1371626726.400 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 139:                                                                                     ║
+║     Total Energy: 16382002370.560 pJ                                                               ║
+║     Off-chip Memory Energy: 14994313600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1366423649.280 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 140:                                                                                     ║
+║     Total Energy: 16439319577.600 pJ                                                               ║
+║     Off-chip Memory Energy: 15056910400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1361144056.320 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 141:                                                                                     ║
+║     Total Energy: 16497641809.920 pJ                                                               ║
+║     Off-chip Memory Energy: 15120604800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1355771888.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 142:                                                                                     ║
+║     Total Energy: 16554159098.880 pJ                                                               ║
+║     Off-chip Memory Energy: 15182328000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1350565977.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 143:                                                                                     ║
+║     Total Energy: 16611353241.600 pJ                                                               ║
+║     Off-chip Memory Energy: 15244790400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1345297720.320 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 144:                                                                                     ║
+║     Total Energy: 16669521643.520 pJ                                                               ║
+║     Off-chip Memory Energy: 15308316800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1339939722.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 145:                                                                                     ║
+║     Total Energy: 16728664304.640 pJ                                                               ║
+║     Off-chip Memory Energy: 15372907200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1334491983.360 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 146:                                                                                     ║
+║     Total Energy: 16787971051.520 pJ                                                               ║
+║     Off-chip Memory Energy: 15437676800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1329029130.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 147:                                                                                     ║
+║     Total Energy: 16848231546.880 pJ                                                               ║
+║     Off-chip Memory Energy: 15503488000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1323478425.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 148:                                                                                     ║
+║     Total Energy: 16906348672.000 pJ                                                               ║
+║     Off-chip Memory Energy: 15566958400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1318125150.720 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 149:                                                                                     ║
+║     Total Energy: 16964917032.960 pJ                                                               ║
+║     Off-chip Memory Energy: 15630921600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1312730311.680 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 150:                                                                                     ║
+║     Total Energy: 17024100715.520 pJ                                                               ║
+║     Off-chip Memory Energy: 15695556800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1307278794.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 151:                                                                                     ║
+║     Total Energy: 17083192099.840 pJ                                                               ║
+║     Off-chip Memory Energy: 15760091200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1301835778.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 152:                                                                                     ║
+║     Total Energy: 17142191185.920 pJ                                                               ║
+║     Off-chip Memory Energy: 15824524800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1296401264.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 153:                                                                                     ║
+║     Total Energy: 17200903121.920 pJ                                                               ║
+║     Off-chip Memory Energy: 15888644800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1290993200.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 154:                                                                                     ║
+║     Total Energy: 17260291911.680 pJ                                                               ║
+║     Off-chip Memory Energy: 15953504000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1285522790.400 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 155:                                                                                     ║
+║     Total Energy: 17319455083.520 pJ                                                               ║
+║     Off-chip Memory Energy: 16018116800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1280073162.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 156:                                                                                     ║
+║     Total Energy: 17378997703.680 pJ                                                               ║
+║     Off-chip Memory Energy: 16083144000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1274588582.400 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 157:                                                                                     ║
+║     Total Energy: 17439186411.520 pJ                                                               ║
+║     Off-chip Memory Energy: 16148876800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1269044490.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 158:                                                                                     ║
+║     Total Energy: 17499918653.440 pJ                                                               ║
+║     Off-chip Memory Energy: 16215203200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1263450332.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 159:                                                                                     ║
+║     Total Energy: 17558917739.520 pJ                                                               ║
+║     Off-chip Memory Energy: 16279636800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1258015818.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 160:                                                                                     ║
+║     Total Energy: 17616665671.680 pJ                                                               ║
+║     Off-chip Memory Energy: 16342704000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1252696550.400 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 161:                                                                                     ║
+║     Total Energy: 17677038976.000 pJ                                                               ║
+║     Off-chip Memory Energy: 16408638400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1247135454.720 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 162:                                                                                     ║
+║     Total Energy: 17735945763.840 pJ                                                               ║
+║     Off-chip Memory Energy: 16472971200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1241709442.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 163:                                                                                     ║
+║     Total Energy: 17795898598.400 pJ                                                               ║
+║     Off-chip Memory Energy: 16538446400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1236187077.120 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 164:                                                                                     ║
+║     Total Energy: 17854866918.400 pJ                                                               ║
+║     Off-chip Memory Energy: 16602846400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1230755397.120 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 165:                                                                                     ║
+║     Total Energy: 17913332725.760 pJ                                                               ║
+║     Off-chip Memory Energy: 16666697600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1225370004.480 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 166:                                                                                     ║
+║     Total Energy: 17973500922.880 pJ                                                               ║
+║     Off-chip Memory Energy: 16732408000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1219827801.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 167:                                                                                     ║
+║     Total Energy: 18033761418.240 pJ                                                               ║
+║     Off-chip Memory Energy: 16798219200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1214277096.960 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 168:                                                                                     ║
+║     Total Energy: 18092678461.440 pJ                                                               ║
+║     Off-chip Memory Energy: 16862563200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1208850140.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 169:                                                                                     ║
+║     Total Energy: 18151113502.720 pJ                                                               ║
+║     Off-chip Memory Energy: 16926380800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1203467581.440 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 170:                                                                                     ║
+║     Total Energy: 18210266419.200 pJ                                                               ║
+║     Off-chip Memory Energy: 16990982400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1198018897.920 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 171:                                                                                     ║
+║     Total Energy: 18270526914.560 pJ                                                               ║
+║     Off-chip Memory Energy: 17056793600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1192468193.280 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 172:                                                                                     ║
+║     Total Energy: 18330541281.280 pJ                                                               ║
+║     Off-chip Memory Energy: 17122336000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1186940160.000 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 173:                                                                                     ║
+║     Total Energy: 18391468375.040 pJ                                                               ║
+║     Off-chip Memory Energy: 17188875200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1181328053.760 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 174:                                                                                     ║
+║     Total Energy: 18452641597.440 pJ                                                               ║
+║     Off-chip Memory Energy: 17255683200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1175693276.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 175:                                                                                     ║
+║     Total Energy: 18513302051.840 pJ                                                               ║
+║     Off-chip Memory Energy: 17321931200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1170105730.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 176:                                                                                     ║
+║     Total Energy: 18574300933.120 pJ                                                               ║
+║     Off-chip Memory Energy: 17388548800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1164487011.840 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 177:                                                                                     ║
+║     Total Energy: 18635371601.920 pJ                                                               ║
+║     Off-chip Memory Energy: 17455244800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1158861680.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 178:                                                                                     ║
+║     Total Energy: 18696462781.440 pJ                                                               ║
+║     Off-chip Memory Energy: 17521963200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1153234460.160 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 179:                                                                                     ║
+║     Total Energy: 18756948894.720 pJ                                                               ║
+║     Off-chip Memory Energy: 17588020800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1147662973.440 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 180:                                                                                     ║
+║     Total Energy: 18817701647.360 pJ                                                               ║
+║     Off-chip Memory Energy: 17654369600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1142066926.080 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 181:                                                                                     ║
+║     Total Energy: 18878833848.320 pJ                                                               ║
+║     Off-chip Memory Energy: 17721132800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1136435927.040 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 182:                                                                                     ║
+║     Total Energy: 18940253199.360 pJ                                                               ║
+║     Off-chip Memory Energy: 17788209600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1130778478.080 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 183:                                                                                     ║
+║     Total Energy: 19000298332.160 pJ                                                               ║
+║     Off-chip Memory Energy: 17853785600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1125247610.880 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 184:                                                                                     ║
+║     Total Energy: 19059830696.960 pJ                                                               ║
+║     Off-chip Memory Energy: 17918801600.000 pJ                                                     ║
+║     On-chip Memory Energy: 1119763975.680 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 185:                                                                                     ║
+║     Total Energy: 19119393827.840 pJ                                                               ║
+║     Off-chip Memory Energy: 17983851200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1114277506.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 186:                                                                                     ║
+║     Total Energy: 19180167091.200 pJ                                                               ║
+║     Off-chip Memory Energy: 18050222400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1108679569.920 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 187:                                                                                     ║
+║     Total Energy: 19241104440.320 pJ                                                               ║
+║     Off-chip Memory Energy: 18116772800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1103066519.040 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 188:                                                                                     ║
+║     Total Energy: 19301775150.080 pJ                                                               ║
+║     Off-chip Memory Energy: 18183032000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1097478028.800 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 189:                                                                                     ║
+║     Total Energy: 19364291824.640 pJ                                                               ║
+║     Off-chip Memory Energy: 18251307200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1091719503.360 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 190:                                                                                     ║
+║     Total Energy: 19427054627.840 pJ                                                               ║
+║     Off-chip Memory Energy: 18319851200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1085938306.560 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 191:                                                                                     ║
+║     Total Energy: 19488104785.920 pJ                                                               ║
+║     Off-chip Memory Energy: 18386524800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1080314864.640 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 192:                                                                                     ║
+║     Total Energy: 19548529367.040 pJ                                                               ║
+║     Off-chip Memory Energy: 18452515200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1074749045.760 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 193:                                                                                     ║
+║     Total Energy: 19609487226.880 pJ                                                               ║
+║     Off-chip Memory Energy: 18519088000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1069134105.600 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 194:                                                                                     ║
+║     Total Energy: 19668681164.800 pJ                                                               ║
+║     Off-chip Memory Energy: 18583734400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1063681643.520 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 195:                                                                                     ║
+║     Total Energy: 19730490219.520 pJ                                                               ║
+║     Off-chip Memory Energy: 18651236800.000 pJ                                                     ║
+║     On-chip Memory Energy: 1057988298.240 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 196:                                                                                     ║
+║     Total Energy: 19792873574.400 pJ                                                               ║
+║     Off-chip Memory Energy: 18719366400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1052242053.120 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 197:                                                                                     ║
+║     Total Energy: 19854303180.800 pJ                                                               ║
+║     Off-chip Memory Energy: 18786454400.000 pJ                                                     ║
+║     On-chip Memory Energy: 1046583659.520 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 198:                                                                                     ║
+║     Total Energy: 19916583982.080 pJ                                                               ║
+║     Off-chip Memory Energy: 18854472000.000 pJ                                                     ║
+║     On-chip Memory Energy: 1040846860.800 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+║   - Batch 199:                                                                                     ║
+║     Total Energy: 19978434058.240 pJ                                                               ║
+║     Off-chip Memory Energy: 18922019200.000 pJ                                                     ║
+║     On-chip Memory Energy: 1035149736.960 pJ                                                       ║
+║     Operations Energy:                                                                             ║
+║       - Operation 0: 21265121.280 pJ                                                               ║
+╚════════════════════════════════════════════════════════════════════════════════════════════════════╝
+(Time elapsed(s) in energy estimation:   0.004938sec)
