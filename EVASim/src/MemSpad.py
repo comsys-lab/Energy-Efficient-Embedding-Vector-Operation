@@ -139,7 +139,7 @@ class MemSpad:
                     # Count each element individually
                     for addr in table.flatten():
                         # Make sure we're using a hashable type (Python int)
-                        access_freq[int(addr)] += 1
+                        access_freq[addr] += 1
             
             # Get most common addresses
             access_freq = access_freq.most_common()
@@ -167,6 +167,12 @@ class MemSpad:
             # print(len(access_freq))
             # print(access_freq[0])
             # print(access_freq[-1])
+            # print(f"self.emb_dataset[0][0][0] value: {self.emb_dataset[0][0][0]}")
+            # print(f"self.emb_dataset[0][0][0] dtype: {self.emb_dataset[0][0][0].dtype}")
+            # print(f"on_mem_set[0] type: {type(on_mem_set[0])}")
+            # print(f"on_mem_set[0] value: {on_mem_set[0]}")
+            # print(f"on_mem_set[0] in self.emb_dataset[0][0]): {on_mem_set[0] in self.emb_dataset[0][0]}")
+            # # print(self.emb_dataset[0][0][-1000:])
             # print(on_mem_set.shape)
             # exit()
         
@@ -183,9 +189,14 @@ class MemSpad:
             print("Simulation for batch {}...".format(nb))
             with tqdm(total=len(self.emb_dataset[nb]), desc="Simulation") as pbar:
                 for nt in range(len(self.emb_dataset[nb])):                           
-                    hit_mask = np.isin(self.emb_dataset[nb][nt], self.on_mem)  # hit_mask is a boolean array between table_data and self.on_mem
-                    num_hit += np.sum(hit_mask) 
-                    num_miss += np.sum(~hit_mask)
+                    # hit_mask = np.isin(self.emb_dataset[nb][nt], self.on_mem)  # hit_mask is a boolean array between table_data and self.on_mem
+                    # num_hit += np.sum(hit_mask) 
+                    # num_miss += np.sum(~hit_mask)
+                    for vec in self.emb_dataset[nb][nt]:
+                        if vec in self.on_mem:
+                            num_hit += 1
+                        else:
+                            num_miss += 1
                     
                     # if self.mem_policy == "spad_oracle":
                         ### Table-wise oracular profiling
