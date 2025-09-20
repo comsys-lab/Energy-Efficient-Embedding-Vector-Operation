@@ -12,7 +12,7 @@ mkdir -p $OUT
 data_path_dir="$(pwd)/datasets/"
 # dataset_list=("dlrm/reuse_medium_table_1M.txt")
 # dataset_list=("dlrm/reuse_high_table_1M.txt")
-dataset_list=("dlrm/reuse_high_test.txt")
+dataset_list=("dlrm/reuse_low_trunc.txt")
 ###############
 
 ### simulation parameters ###
@@ -23,7 +23,7 @@ EMB_TBL=512 # 512
 EMB_POOL=170
 EMBS="$EMB_DIM,$EMB_ROW,$EMB_TBL,$EMB_POOL"
 
-NUM_BATCH=1
+NUM_BATCH=200
 BS=32
 
 # Set PROF_MULTIPLIER to $2 if provided, otherwise default to 1

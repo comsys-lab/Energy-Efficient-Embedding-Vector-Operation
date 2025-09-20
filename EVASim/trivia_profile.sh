@@ -3,31 +3,29 @@
 
 ### outdir ### 
 # OUT="results_ed_r_nt_lk_nb_bs"
-# OUT="results_1mperiod"
 OUT="results_energy"
 mkdir -p $OUT
 ##############
 
 ### dataset ###
 data_path_dir="$(pwd)/datasets/"
-# dataset_list=("dlrm/reuse_medium_table_1M.txt")
-# dataset_list=("dlrm/reuse_high_table_1M.txt")
-dataset_list=("dlrm/reuse_high_test.txt")
+dataset_list=("vectordb/trivia_zipf12_100m.txt")
 ###############
 
 ### simulation parameters ###
 MEM_CFG=$1 # spad_naive
-EMB_DIM=256
-EMB_ROW=1000000
-EMB_TBL=512 # 512
-EMB_POOL=170
+EMB_DIM=768
+EMB_ROW=15000000
+EMB_TBL=1
+# EMB_POOL=10000000
+EMB_POOL=117187 # 2500000
 EMBS="$EMB_DIM,$EMB_ROW,$EMB_TBL,$EMB_POOL"
+NUM_FORMAT=32
 
-NUM_BATCH=1
-BS=32
+NUM_BATCH=20
+BS=8
 
-# Set PROF_MULTIPLIER to $2 if provided, otherwise default to 1
-PROF_MULTIPLIER=${2:-1}
+PROF_MULTIPLIER=$2
 ##############################
 
 ### others ###
@@ -46,8 +44,8 @@ for dataset in "${dataset_list[@]}"; do
     for e in $EMBS; do
         IFS=','; set -- $e; EMB_DIM=$1; EMB_ROW=$2; EMB_TBL=$3; EMB_LS=$4; unset IFS;
         EMB_TBL=$(python3 -c "$PyGenTbl" "$EMB_ROW" "$EMB_TBL")
-        python3 src/simulator.py --num-batches $NUM_BATCH --batch-size $BS --numeric-format-bits "8" \
-            --lookups-per-sample $EMB_LS --arch-sparse-feature-size $EMB_DIM\
+        python3 src/simulator.py --num-batches $NUM_BATCH --batch-size $BS\
+            --lookups-per-sample $EMB_LS --arch-sparse-feature-size $EMB_DIM --numeric-format-bits $NUM_FORMAT\
             --arch-embedding-size $EMB_TBL --data-generation=$DATA_GEN_PATH --memory-config=$MEM_CFG\
             --profiling-multiplier $PROF_MULTIPLIER | tee $(pwd)/${OUTFILE}_${MEM_CFG}_${PROF_MULTIPLIER}batch.log
     done

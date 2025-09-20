@@ -9,14 +9,14 @@ mkdir -p $OUT
 
 ### dataset ###
 data_path_dir="$(pwd)/datasets/"
-# dataset_list=("vectordb/sift250m_10m.txt")
+dataset_list=("vectordb/sift250m_10m.txt")
 # dataset_list=("vectordb/spacev250m_10m.txt")
-dataset_list=("vectordb/deep250m_256_10m.txt")
+# dataset_list=("vectordb/deep250m_256_10m.txt")
 ###############
 
 ### simulation parameters ###
 MEM_CFG=$1 # spad_naive
-EMB_DIM=96
+EMB_DIM=128
 EMB_ROW=250000000
 EMB_TBL=1
 # EMB_POOL=10000000
@@ -24,7 +24,7 @@ EMB_POOL=2500000 # 2500000
 EMBS="$EMB_DIM,$EMB_ROW,$EMB_TBL,$EMB_POOL"
 NUM_FORMAT=32
 
-NUM_BATCH=200
+NUM_BATCH=10
 BS=1
 
 PROF_MULTIPLIER=$2

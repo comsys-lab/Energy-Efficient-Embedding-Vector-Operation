@@ -11,7 +11,7 @@ mkdir -p $OUT
 data_path_dir="$(pwd)/datasets/"
 # dataset_list=("vectordb/sift250m_10m.txt")
 # dataset_list=("vectordb/spacev250m_10m.txt")
-dataset_list=("vectordb/deep250m_10m.txt")
+dataset_list=("vectordb/deep250m_100m.txt")
 ###############
 
 ### simulation parameters ###
@@ -22,10 +22,10 @@ EMB_TBL=1
 # EMB_POOL=10000000
 EMB_POOL=2500000 # 2500000
 EMBS="$EMB_DIM,$EMB_ROW,$EMB_TBL,$EMB_POOL"
-NUM_FORMAT=32
+NUM_FORMAT=8
 
-NUM_BATCH=200
-BS=1
+NUM_BATCH=10
+BS=8
 
 PROF_MULTIPLIER=$2
 ##############################
