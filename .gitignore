@@ -41,6 +41,13 @@ EVASim/results_Batchperiod0204/
 EVASim/ls_i.txt
 EVASim/oracle_trace_all.txt
 EVASim/oracle_trace.txt
+EVASim/32bs_mid_addr_trace.txt
+EVASim/32tbl_mid_addr_trace.txt
+EVASim/32tbl_mid_large_addr_trace.txt
+EVASim/32tblbs_mid_addr_trace.txt
+EVASim/high_addr_trace.txt
+EVASim/low_custom_trace.txt
+EVASim/mid_custom_trace.txt
 
 
 ### Temporal or Large Datasets
@@ -57,8 +64,8 @@ EVASim/datasets/dlrm/reuse_high_test2.txt
 EVASim/datasets/vectordb/deep250m_large_100m.txt
 EVASim/datasets/vectordb/deep250m_small_100m.txt
 EVASim/logger_first_batch_entries.txt
-
-
+EVASim/datasets/test/
+EVASim/datasets/vectordb/trivia_zipf12_100m.txt
 
 
 
