@@ -8,7 +8,8 @@ OUT="results_energy"
 mkdir -p $OUT
 ##############
 
-### dataset ###
+### workload & dataset ###
+workload_type="dlrm"
 data_path_dir="$(pwd)/datasets/"
 # dataset_list=("dlrm/reuse_medium_table_1M.txt")
 # dataset_list=("dlrm/reuse_high_table_1M.txt")
@@ -49,6 +50,6 @@ for dataset in "${dataset_list[@]}"; do
         python3 src/simulator.py --num-batches $NUM_BATCH --batch-size $BS --numeric-format-bits "8" \
             --lookups-per-sample $EMB_LS --arch-sparse-feature-size $EMB_DIM\
             --arch-embedding-size $EMB_TBL --data-generation=$DATA_GEN_PATH --memory-config=$MEM_CFG\
-            --profiling-multiplier $PROF_MULTIPLIER | tee $(pwd)/${OUTFILE}_${MEM_CFG}_${PROF_MULTIPLIER}batch.log
+            --profiling-multiplier $PROF_MULTIPLIER --workload-type $workload_type | tee $(pwd)/${OUTFILE}_${MEM_CFG}_${PROF_MULTIPLIER}batch.log
     done
 done

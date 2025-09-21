@@ -46,6 +46,7 @@ EVASim/32tbl_mid_addr_trace.txt
 EVASim/32tbl_mid_large_addr_trace.txt
 EVASim/32tblbs_mid_addr_trace.txt
 EVASim/high_addr_trace.txt
+EVASim/addr_trace.txt
 EVASim/low_custom_trace.txt
 EVASim/mid_custom_trace.txt
 

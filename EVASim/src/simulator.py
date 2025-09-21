@@ -5,10 +5,12 @@ from MemSpad import MemSpad
 from MemCache import MemCache
 from MemProfile import MemProfile
 from EnergyEstimator import EnergyEstimator
+from RuntimeModel import RuntimeModel
 import argparse
 import sys
 import numpy as np
 import os
+import yaml
 
 ## Credit: Original code from Rishabh; Assisting the args parser
 def dash_separated_ints(value):
@@ -64,6 +66,7 @@ if __name__ == "__main__":
     parser.add_argument("--batch-size", type=int, default=1024)
     parser.add_argument("--lookups-per-sample", type=int, default=150)
     parser.add_argument("--profiling-multiplier", type=int, default=1)
+    parser.add_argument("--workload-type", type=str, default="dlrm")
     
     # argparses
     args = parser.parse_args()
@@ -78,10 +81,18 @@ if __name__ == "__main__":
     num_indices_per_lookup = args.lookups_per_sample # pooling factor or lookups per sample
     
     prof_multiplier = args.profiling_multiplier
+    workload_type = args.workload_type
     
-    # Parse the memory config file
+    # Parse the memory config file - YAML format
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    mem_config_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), 
+    
+    # Try YAML format first
+    yaml_config_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), 
+                                  'EVASim', 'configs', 
+                                  f'{mem_config_file}.yaml')
+    
+    # Fallback to .config format
+    config_path = os.path.join(os.path.dirname(os.path.dirname(script_dir)), 
                                   'EVASim', 'configs', 
                                   f'{mem_config_file}.config')
     
@@ -92,31 +103,72 @@ if __name__ == "__main__":
     rrpv_bits = 0
     rrip_insert = 0
     
-    with open(mem_config_path, 'r') as mem_cfg:
-        for cfg_line in mem_cfg:
-            key, value = cfg_line.split(':')
-            if key.strip() == 'mem_size':
-                mem_size = int(value.strip()) # KB
-            elif key.strip() == 'mem_type':
-                mem_type = str(value.strip())
-            elif key.strip() == 'policy':
-                mem_policy = mem_type+'_'+str(value.strip())
-            elif key.strip() == 'access_granularity':
-                mem_gran = int(value.strip()) # B
+    # Try to load YAML config first
+    if os.path.exists(yaml_config_path):
+        with open(yaml_config_path, 'r') as yaml_cfg:
+            config_data = yaml.safe_load(yaml_cfg)
+            
+            # Parse memory configuration
+            memory_config = config_data.get('memory', {})
+            mem_size = memory_config.get('mem_size', 0)  # KB
+            mem_type = memory_config.get('mem_type', '')
+            mem_policy = mem_type + '_' + memory_config.get('policy', '')
+            mem_gran = memory_config.get('access_granularity', 0)  # B
+            
+            # Parse vector unit configuration
+            vector_unit_config = config_data.get('vector_unit', {})
+            vector_lanes = vector_unit_config.get('lanes', 128)
+            vector_sublanes = vector_unit_config.get('sublanes', 8)
+            vector_alus_per_sublanes = vector_unit_config.get('ALUs_per_sublanes', 4)
+            
+            # Parse matrix unit configuration
+            matrix_unit_config = config_data.get('matrix_unit', {})
+            mxu_dimension = matrix_unit_config.get('mxu_dimension', 128)
+            num_mxus = matrix_unit_config.get('num_mxus', 4)
+            
             if mem_type == "cache":
-                if key.strip() == 'cache_way':
-                    cache_way = int(value.strip())
-                elif key.strip() == 'cache_line_size':
-                    # cache_line_size = int(value.strip())
-                    cache_line_size = mem_gran
+                cache_way = memory_config.get('cache_way', 0)
+                cache_line_size = mem_gran  # Use access_granularity as cache_line_size
                 
             if mem_policy == 'cache_SRRIP' or mem_policy == 'profile_dynamic_SRRIP':
-                if key.strip() == 'RRPV_bits':
-                    rrpv_bits = int(value.strip())
-                elif key.strip() == 'RRPV_insertion':
-                    rrip_insert = int(value.strip())
-        cache_config = [cache_way, cache_line_size, rrpv_bits, rrip_insert]
+                rrpv_bits = memory_config.get('RRPV_bits', 0)
+                rrip_insert = memory_config.get('RRPV_insertion', 0)
+                
+    # Fallback to old .config format (commented out but kept for reference)
+    # elif os.path.exists(config_path):
+    #     with open(config_path, 'r') as mem_cfg:
+    #         for cfg_line in mem_cfg:
+    #             key, value = cfg_line.split(':')
+    #             if key.strip() == 'mem_size':
+    #                 mem_size = int(value.strip()) # KB
+    #             elif key.strip() == 'mem_type':
+    #                 mem_type = str(value.strip())
+    #             elif key.strip() == 'policy':
+    #                 mem_policy = mem_type+'_'+str(value.strip())
+    #             elif key.strip() == 'access_granularity':
+    #                 mem_gran = int(value.strip()) # B
+    #             if mem_type == "cache":
+    #                 if key.strip() == 'cache_way':
+    #                     cache_way = int(value.strip())
+    #                 elif key.strip() == 'cache_line_size':
+    #                     # cache_line_size = int(value.strip())
+    #                     cache_line_size = mem_gran
+    #                 
+    #             if mem_policy == 'cache_SRRIP' or mem_policy == 'profile_dynamic_SRRIP':
+    #                 if key.strip() == 'RRPV_bits':
+    #                     rrpv_bits = int(value.strip())
+    #                 elif key.strip() == 'RRPV_insertion':
+    #                     rrip_insert = int(value.strip())
+    else:
+        raise FileNotFoundError(f"Config file not found: {yaml_config_path} or {config_path}")
+        
+    cache_config = [cache_way, cache_line_size, rrpv_bits, rrip_insert]
     
+    # Print the parsed configuration for debugging
+    print(f"[DEBUG] Vector Unit - Lanes: {vector_lanes}, Sublanes: {vector_sublanes}, ALUs per sublanes: {vector_alus_per_sublanes}")
+    print(f"[DEBUG] Matrix Unit - MXU dimension: {mxu_dimension}, Number of MXUs: {num_mxus}")
+    print(f"[DEBUG] Memory - Type: {mem_type}, Size: {mem_size} KB, Policy: {mem_policy}")
+
     # these are for convenience...
     emb_config = np.fromstring(embsize, dtype=int, sep="-")
     emb_config = np.asarray(emb_config, dtype=np.int32)
@@ -176,16 +228,16 @@ if __name__ == "__main__":
     helper.end_timer("address generation")
     
     # temporal test: store reqgen.addr_trace np array in a txt file, each element in each row in the txt file.
-    with open("addr_trace.txt", "w") as f:
-        for i in range(len(reqgen.addr_trace)):
-            for j in range(len(reqgen.addr_trace[i])):
-                for k in range(len(reqgen.addr_trace[i][j])):
-                    # f.write(str(reqgen.addr_trace[i][j][k]) + "\n")
-                    f.write(str(reqgen.addr_trace[i][j][k]) + ",")
-                # f.write("\n")
-    f.close()
+    # with open("addr_trace.txt", "w") as f:
+    #     for i in range(len(reqgen.addr_trace)):
+    #         for j in range(len(reqgen.addr_trace[i])):
+    #             for k in range(len(reqgen.addr_trace[i][j])):
+    #                 # f.write(str(reqgen.addr_trace[i][j][k]) + "\n")
+    #                 f.write(str(reqgen.addr_trace[i][j][k]) + ",")
+    #             # f.write("\n")
+    # f.close()
     
-    exit()
+    # exit()
 
     #-------------------------------------------------------------------
     
@@ -231,6 +283,17 @@ if __name__ == "__main__":
     helper.set_timer()
     mem_struct.do_simulation()
     helper.end_timer("do simulation")
+    
+    #-------------------------------------------------------------------
+    
+    ##################################
+    ### Execution Time Calculation ###
+    ##################################
+    
+    helper.set_timer()
+    compute_time = RuntimeModel(workload_type, emb_dim, num_tables, bsz, num_indices_per_lookup, vector_lanes, vector_sublanes, vector_alus_per_sublanes, mxu_dimension, num_mxus)
+    compute_time.do_runtime_calculation()
+    helper.end_timer("do execution time calculation")
     
     #-------------------------------------------------------------------
     
